@@ -1,0 +1,10 @@
+El proyecto de la clase trata de hacer un sitio web donde las empresas puedan mostrar sus promociones, ser una manera mas facil de darle publicidad a dicha empresa de sus promociones.
+Mi sitio web se llama Astro-Promo; Astro es un sinonimo de mundo o de planeta y promo viene de promociones entonces quiere decir un "Mundo de Promociones". Los colores son de acuerdo al nombre, ya que el verde luminoso resalta entre el fondo negro, se podria decir que cada estrella es una promocion que esta esperando al usuario. 
+Las funcionalidades: 
+* Darle al usuario una experiencia involvidable 
++ una de las funcionalidades de mi sitio es que quiero ahorrar lo mas posible entonces lo que pude hacer es que en los formularios de registros hacerlos con componente modal 
++ mi sitio web contara una principal, un menu y los formularios
++los formularios tendran sus validaciones y verificaciones.
++ Tambien unas de las funcionalidades de mi sitio web es que es dinamico, ya sea para mostrar las promociones. 
++ trato de llevar en cada pagina html los colores principales de mi sitio web. 
++ Cabe  mencionar que mi sitio web contiene font awesome, animate.css y bootstrap que hoy en dia son herramientas para la creacion de sitios web. se podria decir que es un aspecto investigativo de mi parte. 

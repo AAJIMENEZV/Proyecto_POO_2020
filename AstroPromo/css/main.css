@@ -1,0 +1,21 @@
+#body{
+    background-color:#0b0f13;
+}
+#elnavbar{
+    border: 10px;
+    border-style: double;
+    padding: 20px;
+    border-color: #1F886c;
+}
+#columna1,#columna2{
+padding: 30px;
+}
+.btn-outline-verde{
+    color: #1f886c;
+    border-color: #1F886c;
+    margin: 5px;
+}
+.btn-outline-verde:hover{
+    background-color: #1F886c;
+    color:white;
+}
