@@ -64,3 +64,10 @@ form{
     margin: 15px;
     width: 1000px;
 }
+.modal-content{
+	background-color: #212529;
+
+}
+.card-img-top{
+	height: 144px !important;
+}
