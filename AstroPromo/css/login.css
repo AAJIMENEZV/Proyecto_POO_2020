@@ -1,89 +1,66 @@
-/* Made with love by Mutiullah Samim*/
-
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
-html,body{
-background-image: url('../img/universo.jpg');
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
+body{
+	display:flex;	
+	background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+	padding:0;
+	margin:0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 100%;
+}
+video{
+	position: fixed;
+	min-width: 100%;
+	min-height: 100%;
+	top: 50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	z-index: -1;
 }
 
+h1 {
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 .container{
-height: 100%;
-align-content: center;
+	margin-top: 100px;
+	margin-bottom: 100px;
 }
-
-.card{
-height: 370px;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+section{
+	background-color: rgba(0, 0, 0, 0.486);
+	margin-left: 250px;
+	margin-right: 250px;
+	padding: 10px;
 }
-
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: #FFC312;
+h3,h5{
+	text-align: center;
+    color: white;
+    padding-top: 10px;
 }
-
-.social_icon span:hover{
-color: white;
-cursor: pointer;
+form{
+	padding: 10px !important;
 }
-
-.card-header h3{
-color: white;
+#btn-registrate{
+	font-style: italic;
+	font-size: 1.5rem;
+	padding-top: 1px;
+	text-align: center;
 }
-
-.social_icon{
-position: absolute;
-right: 20px;
-top: -45px;
-}
-
-.input-group-prepend span{
-width: 50px;
-background-color: #FFC312;
-color: black;
-border:0 !important;
-}
-
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
-
-}
-
-.remember{
-color: white;
-}
-
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
-}
-
-.login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
-}
-
-.login_btn:hover{
-color: black;
-background-color: white;
-}
-
 .links{
-color: white;
+    padding: 5px;
+    border-top-width: 0.5px;
+    border-top-style: solid;
 }
-
-.links a{
-margin-left: 4px;
+.input-group-text{
+    background-color: #c98d63;
+}
+.btones{
+    margin: 15px;
+    width: 1000px;
 }
