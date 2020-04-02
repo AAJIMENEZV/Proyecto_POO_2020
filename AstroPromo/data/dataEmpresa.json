@@ -1,0 +1,123 @@
+[
+    {
+        "nombreEmpresa": "Jetstereo",
+        "imagenesEmpresas":["/img/jet1.jpg"],
+        "pais": "Honduras",
+        "direccion": "Col. Pedro Pablo Leon Jaramillo",
+        "longitud":"125.36",
+        "latitud":"185.36",
+        "logotipo":"/img/jets0.jpg",
+        "redesSociales":{
+            "facebook":"Jetstereo HN",
+            "twitter":"Jetstereo HN",
+            "instagram":"Jetstereo HN"
+        },
+        "telefono":"2559-7249",
+        "correo":"jestereo@gmail.com",
+        "banner":"/img/jet2.jpg",
+        "promociones":[
+            {
+                "nombrePromocion":"Cuarentena",
+                "descripcionPromocion":"Mouse inalambrico 2.0 ",
+                "imagenPromocion":"/img/promo.jpg",
+                "producto":"Mouse",
+                "descuento":"50%",
+                "precioNormal":"400",
+                "precioPromocion":"200",
+                "fechaVencimiento":"04-03-2020"
+            }
+        ],
+        "sucursales":[
+            {
+                "numeroSucursal":"NO. 1",
+                "direccionSucursal":"Col. trejo a la par de una casa"
+            },
+            {
+                "numeroSucursal":"NO. 2",
+                "direccionSucursal":"Col. Maria a la par de una casa"
+            }
+        
+        ]
+    },
+    {
+        "nombreEmpresa": "Comercial Extra",
+        "imagenesEmpresas":["/img/extra1.jpg"],
+        "pais": "Honduras",
+        "direccion": "Col. Medicasa",
+        "longitud":"125.36",
+        "latitud":"185.36",
+        "logotipo":"/img/extra2.jpg",
+        "redesSociales":{
+            "facebook":"Super Tienda Extra HN",
+            "twitter":"Super Tienda Extra HN",
+            "instagram":"Super Tienda Extra HN"
+        },
+        "telefono":"2559-5296",
+        "correo":"extra@gmail.com",
+        "banner":"/img/extra3.jpg",
+        "promociones":[
+            {
+                "nombrePromocion":"Lluvia de Utiles",
+                "descripcionPromocion":"paquete de utiles escolares",
+                "imagenPromocion":"/img/extra4.jpg",
+                "producto":"Paquete de Utiles",
+                "descuento":"20%",
+                "precioNormal":"400",
+                "precioPromocion":"320",
+                "fechaVencimiento":"04-03-2020"
+            }
+        ],
+        "sucursales":[
+            {
+                "numeroSucursal":"NO. 1",
+                "direccionSucursal":"Col. trejo a la par de una casa"
+            },
+            {
+                "numeroSucursal":"NO. 2",
+                "direccionSucursal":"Col. Maria a la par de una casa"
+            }
+        
+        ]
+    },
+    {
+        "nombreEmpresa": "Tigo",
+        "imagenesEmpresas":["/img/tigo1.jpg"],
+        "pais": "Honduras",
+        "direccion": "Col. Ciudad Universitaria",
+        "longitud":"125.36",
+        "latitud":"185.36",
+        "logotipo":"/img/tigo2.jpg",
+        "redesSociales":{
+            "facebook":"Tigo HN",
+            "twitter":"Tigo HN",
+            "instagram":"Tigo HN"
+        },
+        "telefono":"2559-5296",
+        "correo":"tigo@gmail.com",
+        "banner":"/img/tigo3.jpg",
+        "promociones":[
+            {
+                "nombrePromocion":"Lluvia de Saldo",
+                "descripcionPromocion":"paquete de super recargas",
+                "imagenPromocion":"/img/tigo4.jpg",
+                "producto":"Paquete de Super Recargas",
+                "descuento":"30%",
+                "precioNormal":"100",
+                "precioPromocion":"70",
+                "fechaVencimiento":"04-03-2020"
+            }
+        ],
+        "sucursales":[
+            {
+                "numeroSucursal":"NO. 1",
+                "direccionSucursal":"Col. trejo a la par de una casa"
+            },
+            {
+                "numeroSucursal":"NO. 2",
+                "direccionSucursal":"Col. Maria a la par de una casa"
+            }
+        
+        ]
+    }
+
+]

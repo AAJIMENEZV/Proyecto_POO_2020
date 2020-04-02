@@ -1,5 +1,5 @@
 .cabecera{
-    background-image: url("../img/universo2.jpg") !important;
+    background-image: url("../img/thumb-350-480730.jpg") !important;
     background-size: cover;
 }
 
@@ -91,11 +91,13 @@ h3,h4{
 }
 
 #parrafo{
+    color: #212529 !important;
     padding-top: 20px;
     padding-bottom: 20px;
     font-style: italic;
     font-weight: 400;
-    letter-spacing: 0.13em;
+    letter-spacing: 0.10em !important;
+    font-size: 22px;
 }
 .modal-dialog{
     max-width: max-content;
@@ -115,4 +117,24 @@ h3,h4{
 .modal-content-2{
     background-color:#0b0f13;
     width: 100vh;
+}
+
+.img-peculiaridades{
+width: 290px !important;
+height: 164px !important;
+display:inline-block;
+}
+.texto-peculiaridad{
+    color: #212529 !important;
+    font-size: 22px !important;
+    font-style: italic;
+}
+.thumb-info-caption{
+    padding-left: 15px !important;
+    padding-top: 10px !important;
+    padding-right: 15px !important;
+    padding-bottom: 10px !important;
+}
+h7:hover{
+    color: #c37d3a;
 }
