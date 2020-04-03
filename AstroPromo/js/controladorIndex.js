@@ -1,3 +1,7 @@
+let mostrar = () => {
+  let dRegistrar = document.querySelector("#registrar");
+  dRegistrar.className = "d-block"
+};
 function inicio(){
     function traerDatoEmpresa(){
       var xmlhttp = new XMLHttpRequest();

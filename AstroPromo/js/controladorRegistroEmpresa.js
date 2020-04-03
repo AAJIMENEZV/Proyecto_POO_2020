@@ -1,3 +1,4 @@
+
 (function() {
     'use strict';
     window.addEventListener('load', function() {
@@ -15,3 +16,32 @@
       });
     }, false);
   })();
+  
+function traerDatoEmpresa() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('GET', 'data/dataEmpresa.json', true);
+  xmlhttp.send();
+  xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+           let data = JSON.parse(this.responseText);
+          
+          return data;
+      }
+  };
+  
+}
+ var leerdatos = traerDatoEmpresa();
+console.log(leerdatos);
+
+function guardarEmpresa() {
+  let empresa = {
+      nombreEmpresa: document.getElementById('nombreEmpresa').value,
+      pais: document.getElementById('paisEmpresa').value,
+      direccion: document.getElementById('direccionEmpresa').value,
+      logotipo:document.getElementById('logotipoEmpresa').value,
+      telefono:document.getElementById('telefonoEmpresa').value,
+      correo:document.getElementById('correoEmpresa').value,
+      contrasena:document.getElementById('contrasenaEmpresa').value
+  };
+  console.log(empresa);
+}
