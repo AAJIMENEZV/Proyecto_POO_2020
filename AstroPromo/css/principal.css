@@ -136,5 +136,17 @@ display:inline-block;
     padding-bottom: 10px !important;
 }
 h7:hover{
-    color: #c37d3a;
+    color: #1F886c;
+}
+.btn-primary.bg-color-secondary{
+    background-color: #1F886c !important ;
+    border-color: #1F886c !important;
+}
+.span-peculidaridades{
+    background-color: #1F886c !important ;
+    border-color: #1F886c !important;
+}
+
+.text-color-peculiaridad{
+    color: #1F886c !important ;
 }
