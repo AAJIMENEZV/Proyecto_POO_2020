@@ -100,7 +100,8 @@
                                                     <img class="img-profile-folow"  src="img/radio.png" alt="">
                                                     <h4>PS4 Liquidacion</h4>
                                                     <p class="card-text">En esta cuarentena y sin hacer nada, pide tu PS4 para el aburrimiento</p>
-                                                    <a href="#" class="btn btn-primary btn-round btn-lg">Ver</a>
+                                                    <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                                                    data-target="#verPromocion">Ver</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -265,12 +266,12 @@
                                     <div class="row">
                                         <div class="col-12 col-sm-6">
                                             <div class="card card-empresa">
-                                                <img class="card-img-top" src="img/radio2.jpg" alt="Card image cap">
+                                                <img class="card-img-top" src="img/nike.jpg" alt="Card image cap">
                                                 <div class="card-block">
-                                                    <img class="img-profile-folow"  src="img/radio.png" alt="">
-                                                    <h4>RadioShack</h4>
+                                                    <img class="img-profile-folow"  src="img/nike2.jpg" alt="">
+                                                    <h4>NIKE</h4>
                                                     <p class="card-text">Las Mejores promociones aqui en esta tienda</p>
-                                                    <a href="#" class="btn btn-primary btn-round btn-lg">Ver</a>
+                                                    <a href="perfilEmpresaCliente.html" class="btn btn-primary btn-round btn-lg">Ver</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -301,7 +302,7 @@
                                             <img class="d-flex mr-3 imgmedia" src="img/ps4.jpg" alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h6 class="mt-0">PS4 Liquidacion</h6>
-                                                <a href="#button" class="btn btn-primary btn-round">Ver</a>
+                                                <a href="#button" class="btn btn-primary btn-round" >Ver</a>
                                             </div>
                                         </div>
                                         <hr>
@@ -323,37 +324,32 @@
                 </div>
             </div>
         </div>
-        <footer class="footer footer-default">
-            <div class="container">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="">
-                                Privacy policy
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="copyright">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                </div>
-            </div>
-        </footer>
+        
     </div>
         
+
+    <div class="modal fade" id="verPromocion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-center" role="document">
+        <div class="modal-content">
+          <div class="card carta-producto " style="padding: 10px;">
+            <img class="card-img-top" src="img/ps4.jpg" alt="Camisa Barsa">
+            <div class="card-block">
+              <img class="img-profile-folow" src="img/radio.png" alt="">
+              <h4>PS4 Liquidacion</h4>
+              <p class="card-text">En esta cuarente, no te aburras y compra tu PS$</p>
+              <p class="category">Precio Normal: 10000 | Oferta: 30% </p>
+              <p class="category">Precio Oferta: 7000 | Fecha Limite: 24/04/2020 </p>
+              <p class="category">Sucursal Multiplaza</p>
+              <div style="text-align: center;">
+                <button type="submit" class="btn btn-primary btn-round btn-lg" id="btn-registrate">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
         
 </body>
 <script src="js/popper.min.js"></script>

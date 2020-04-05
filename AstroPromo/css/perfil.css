@@ -117,5 +117,24 @@ h4{
 .btn-redes{
     background-color: #1F886c ;
 }
+.needs-validation{
+    padding-top: 10px;
+}
+.formulariomodal{
+    margin-bottom: 10px;
+}
+.btn-outline-verde{
+    color: #1f886c;
+    border-color: #1F886c;
+    margin: 5px;
+}
+.carta-empresa{
+    min-height: 200px;
+    height: 550px !important;
+}
 
+.carta-producto{
+    min-height: 200px;
+    height: 600px !important; 
+}
 
