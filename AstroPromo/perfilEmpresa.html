@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Perfil Empresa</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  <!-- CSS Files -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/now-ui-kit.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/perfil.css">
+  <link rel="stylesheet" href="css/all.min.css">
+</head>
+
+<body class="profile-page">
+  <!-- Navbar -->
+  <nav class="navbar navbar-toggleable-md bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+    <div class="container">
+      <div class="dropdown button-dropdown">
+        <a href="#" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+          <span class="button-bar"></span>
+          <span class="button-bar"></span>
+          <span class="button-bar"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="index.html">Cerrar Sesion</a>
+        </div>
+      </div>
+      <div class="navbar-translate">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navigation" aria-controls="navigation-index" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          Astro-Promo
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div class="page-header page-header-small">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('img/nike.jpg');">
+      </div>
+    </div>
+    <div class="section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="content-center text-center porfile-content">
+              <div class="photo-container">
+                <img src="img/nike2.jpg" alt="">
+              </div>
+              <h3 class="title">Nike</h3>
+              <p class="category">Just Do It</p>
+              <p class="category">nike@gmail.com</p>
+              <a href="#button" class="btn  btn-round btn-redes " rel="tooltip" title="Twitter">
+                <i class="fab fa-twitter fa-2x"></i>
+              </a>
+              <a href="#button" class="btn  btn-round btn-redes" rel="tooltip" title="Instagram">
+                <i class="fab fa-instagram fa-2x"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home">
+                  Promociones
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#productos" role="tab" aria-controls="following">
+                  Productos
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#estadistica" role="tab" aria-controls="followers">
+                  Estadisticas
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#sucursales" role="tab" aria-controls="followers">
+                  Sucursales
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#actualizar" role="tab" aria-controls="followers">
+                  Actualizar Perfil
+                </a>
+              </li>
+
+
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane active" id="home" role="tabpanel">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div>
+                      <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                        data-target="#agregarPromocion" style="margin-bottom: 20px;">+ Agregar Promoción</a>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-sm-6">
+                      <div class="card">
+                        <img class="card-img-top" src="img/camisa.png" alt="Card image cap">
+                        <div class="card-block">
+                          <img class="img-profile-folow" src="img/descuento2.png" alt="">
+                          <h4>Camisa Barsa</h4>
+                          <p class="card-text">¡Por tiempo limitado!</p>
+                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                            data-target="#verCamisa">Ver</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <div class="card">
+                        <img class="card-img-top" src="img/guantes.jpg" alt="Card image cap">
+                        <div class="card-block">
+                          <img class="img-profile-folow" src="img/2x1.jpg" alt="">
+                          <h4>Guantes Portero</h4>
+                          <p class="card-text">Practica tus dotes de portero con esta promoción.</p>
+                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                            data-target="#verGuantes">Ver</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="tab-pane Follow" id="actualizar" role="tabpanel">
+                <form class="needs-validation" novalidate>
+                  <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-building"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="nombreEmpresa" placeholder="Nombre Empresa"
+                          aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i
+                              class="fas fa-globe-americas"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="paisEmpresa" placeholder="Pais"
+                          aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-route"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="direccionEmpresa" placeholder="Direccion"
+                          aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-icons"></i></span>
+                        </div>
+                        <input type="file" class="form-control" id="logotipoEmpresa" placeholder="Logotipo"
+                          aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i
+                              class="fas fa-phone-square"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="telefonoEmpresa" placeholder="Telefono"
+                          aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i
+                              class="fas fa-envelope-open-text"></i></span>
+                        </div>
+                        <input type="email" class="form-control" id="correoEmpresa" placeholder="Correo"
+                          aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row" style="padding-left: 150px;">
+                    <div class="col-md-4 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-unlock"></i></span>
+                        </div>
+                        <input type="password" class="form-control" id="contrasenaEmpresa" placeholder="Contraseña"
+                          aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-lock"></i></span>
+                        </div>
+                        <input type="password" class="form-control" id="contrasenaEmpresa"
+                          placeholder="Confirme Contraseña" aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="text-align: center;">
+                    <button class="btn btn-outline-success" id="btn-registrate"
+                      onclick="guardarEmpresa();">Actualizar</button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="tab-pane " id="productos" role="tabpanel">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div>
+                      <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                        data-target="#agregarProducto" style="margin-bottom: 20px;">+ Agregar Producto</a>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-sm-6">
+                      <div class="card" style="padding: 10px;">
+                        <img class="card-img-top" src="img/pelotaa.jpg" alt="Pelota Barsa">
+                        <div class="card-block">
+                          <img class="img-profile-folow" src="img/nike2.jpg" alt="">
+                          <h4>Balón Fútbol</h4>
+                          <p class="card-text">Los balones de mejor calidad.</p>
+                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                            data-target="#verBalon">Ver</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <div class="card">
+                        <img class="card-img-top" src="img/tenis.jpg" alt="Tenis Sport">
+                        <div class="card-block">
+                          <img class="img-profile-folow" src="img/nike2.jpg" alt="">
+                          <h4>Tenis Sport</h4>
+                          <p class="card-text">El ejercicio nunca fué mas fácil.</p>
+                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                            data-target="#verTenis">Ver</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="tab-pane " id="sucursales" role="tabpanel">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div>
+                      <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                        data-target="#agregarSucursal" style="margin-bottom: 20px;">+ Agregar Sucursal</a>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-sm-6">
+                      <div class="card " style="padding: 10px;">
+                        <img class="card-img-top" src="img/pelotaa.jpg" alt="Pelota Barsa">
+                        <div class="card-block">
+                          <img class="img-profile-folow" src="img/nike2.jpg" alt="">
+                          <h4>Balón Fútbol</h4>
+                          <p class="card-text">Los balones de mejor calidad.</p>
+                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                            data-target="#verBalon">Ver</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <div class="card">
+                        <img class="card-img-top" src="img/tenis.jpg" alt="Tenis Sport">
+                        <div class="card-block">
+                          <img class="img-profile-folow" src="img/nike2.jpg" alt="">
+                          <h4>Tenis Sport</h4>
+                          <p class="card-text">El ejercicio nunca fué mas fácil.</p>
+                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                            data-target="#verTenis">Ver</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="tab-pane " id="estadistica" role="tabpanel">
+                <div class="container-fluid">
+                  <div class="card carta-empresa
+     " style="padding: 10px;">
+                    <img class="card-img-top" src="img/estadis.jfif" alt="Estadistica">
+                    <div class="card-block">
+                      <img class="img-profile-folow" src="img/logoesta.jfif" alt="">
+                      <h4>Estadisticas</h4>
+                      <p class="card-text">Aqui se muestran las estadisticas en tiempo real.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class=" col-12 col-sm-3 col-md-3 col-lg-3 col-lx-3 hidden-sm-dow">
+            <div class="sidebar">
+              <h5>Tus Promociones</h5>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="media">
+                      <img class="d-flex mr-3 imgmedia" src="img/camisa.png" alt="Generic placeholder image">
+                      <div class="media-body">
+                        <h6 class="mt-0">Camisa Barca</h6>
+                        <a href="#button" class="btn btn-primary btn-round" data-toggle="modal"
+                          data-target="#verCamisa">Ver</a>
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+                  <div class="col-12">
+                    <div class="media">
+                      <img class="d-flex mr-3 imgmedia" src="img/guantes.jpg" alt="Generic placeholder image">
+                      <div class="media-body">
+                        <h6 class="mt-0">Guantes Portero</h6>
+                        <a href="#button" class="btn btn-primary btn-round" data-toggle="modal"
+                          data-target="#verGuantes">Ver</a>
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer>
+      <div>
+        <br>
+      </div>
+    </footer>
+
+
+
+
+
+    <!-- MODALES -->
+
+    <!--AGREGAR PROMOCIONES-->
+
+    <div class="modal fade" id="agregarPromocion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">AGREGA PROMOCIONES</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card carta-empresa " style="padding: 10px;">
+
+              <form class="needs-validation" novalidate>
+                <div class="form-row col-12">
+                  <input type="text" class="form-control formulariomodal" id="nombrePromocion"
+                    placeholder="Nombre Promocion" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <input type="text" class="form-control formulariomodal" id="descripcionnPromocion"
+                    placeholder="Descripcion" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <select class="custom-select form-control formulariomodal " id="producto" required>
+                    <option selected>Producto...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row" style="padding-left: 15px; padding-right: 15px;">
+                  <div class="col-md-4">
+                    <input type="text" class="form-control formulariomodal" id="precioNormal"
+                      placeholder="Precio Normal" required>
+                    <div class="valid-feedback">
+                      Correcto.
+                    </div>
+                    <div class="invalid-feedback">
+                      Campo Obligatorio.
+                    </div>
+                  </div>
+                  <div class="col-md-4 ">
+                    <input type="text" class="form-control formulariomodal" id="descuento" placeholder="Descuento"
+                      required>
+                    <div class="valid-feedback">
+                      Correcto.
+                    </div>
+                    <div class="invalid-feedback">
+                      Campo Obligatorio.
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="text" class="form-control formulariomodal" id="precioOferta"
+                      placeholder="Precio Oferta" required>
+                    <div class="valid-feedback">
+                      Correcto.
+                    </div>
+                    <div class="invalid-feedback">
+                      Campo Obligatorio.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row" style="padding-left: 15px; padding-right: 15px;">
+                  <div class="col-md-6 form-group">
+                    <label for="fechaInicio"> Fecha Inicio</label>
+                    <input type="date" class="form-control formulariomodal" id="fechaInicio" required>
+                    <div class="valid-feedback">
+                      Correcto.
+                    </div>
+                    <div class="invalid-feedback">
+                      Campo Obligatorio.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="fechaFinal"> Fecha Final</label>
+                    <input type="date" class="form-control formulariomodal" id="fechaFinal" required>
+                    <div class="valid-feedback">
+                      Correcto.
+                    </div>
+                    <div class="invalid-feedback">
+                      Campo Obligatorio.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <select class="custom-select form-control formulariomodal " id="sucursal" required>
+                    <option selected>Sucursal...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div style="text-align: center;">
+                  <button type="submit" class="btn btn-primary btn-round btn-lg" id="btn-registrate">Agregar</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--AGREGAR PRODUCTO-->
+
+    <div class="modal fade" id="agregarProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog " role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">AGREGA PRODUCTO</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card carta-empresa " style="padding: 10px;">
+
+              <form class="needs-validation" novalidate>
+                <div class="form-row col-12">
+                  <input type="text" class="form-control formulariomodal" id="nombreProducto"
+                    placeholder="Nombre Producto" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <input type="text" class="form-control formulariomodal" id="descripcionnProducto"
+                    placeholder="Descripcion" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <input type="text" class="form-control formulariomodal" id="precioProducto"
+                    placeholder="Precio de Producto" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <label for="fotoProducto">Foto del Prodcucto</label>
+                  <input type="file" class="form-control formulariomodal" id="fotoProducto" placeholder="fotoProducto"
+                    required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div style="text-align: center;">
+                  <button class="btn btn-outline-success" id="btn-registrate">Agregar</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--AGREGAR Sucursal-->
+
+    <div class="modal fade" id="agregarSucursal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog " role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">AGREGAR SUCURSAL</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card carta-empresa " style="padding: 10px;">
+
+              <form class="needs-validation" novalidate>
+                <div class="form-row col-12">
+                  <input type="text" class="form-control formulariomodal" id="numeroSucursal"
+                    placeholder="Numero Sucursal" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <input type="text" class="form-control formulariomodal" id="latitudSucursal"
+                    placeholder="Latitud" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <input type="text" class="form-control formulariomodal" id="longitudSucursal"
+                    placeholder="Longitud" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <label for="fotoSucursal">Foto de la sucursal</label>
+                  <input type="file" class="form-control formulariomodal" id="fotoSucursal" placeholder="fotoProducto"
+                    required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div style="text-align: center;">
+                  <button class="btn btn-outline-success" id="btn-registrate">Agregar</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--CAMISA-->
+
+    <div class="modal fade" id="verCamisa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-center" role="document">
+        <div class="modal-content">
+          <div class="card carta-empres " style="padding: 10px;">
+            <img class="card-img-top" src="img/camisa2.jpg" alt="Camisa Barsa">
+            <div class="card-block">
+              <img class="img-profile-folow" src="img/descuento2.png" alt="">
+              <h4>Camisas Barcelona</h4>
+              <p class="card-text">Tenemos todas las camisas de Barcelona al 50% de descuento. Animate</p>
+              <p class="category">Precio Normal: 1000 | Oferta: 30% </p>
+              <p class="category">Precio Oferta: 700 | Fecha Limite: 24/04/2020 </p>
+              <p class="category">Sucursal Multiplaza</p>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--GUANTES-->
+
+
+    <div class="modal fade" id="verGuantes" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-center" role="document">
+        <div class="modal-content">
+          <div class="card carta-empres " style="padding: 10px;">
+            <img class="card-img-top" src="img/guante2.jpg" alt="Guante Portero">
+            <div class="card-block">
+              <img class="img-profile-folow" src="img/2x1.jpg" alt="">
+              <h4>Guantes Portero</h4>
+              <p class="card-text">Sin excepcion alguna, si llevas uno el otro es gratis. Mas resistentes y mayor
+                comodidad.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--BALON-->
+    <div class="modal fade" id="verBalon" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-center" role="document">
+        <div class="modal-content">
+          <div class="card carta-empres " style="padding: 10px;">
+            <img class="card-img-top" src="img/balon2.jpg" alt="Pelota Barsa">
+            <div class="card-block">
+              <img class="img-profile-folow" src="img/nike2.jpg" alt="">
+              <h4>Balón Fútbol</h4>
+              <p class="card-text">Tenemos disponible balones de diferentes estilos al mismo precio. Ahora más
+                resistentes.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--TENIS-->
+    <div class="modal fade" id="verTenis" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-center" role="document">
+        <div class="modal-content">
+          <div class="card">
+            <img class="card-img-top" src="img/tenis2.jpg" alt="Tenis Sport">
+            <div class="card-block">
+              <img class="img-profile-folow" src="img/nike2.jpg" alt="">
+              <h4>Tenis Sport</h4>
+              <p class="card-text">Con los nuevos y mejorados tenis Nike hacer ejercicio nunca fue más fácil.<br>
+                Disponibles en todas nuestras tiendas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</body>
+<script src="js/popper.min.js"></script>
+<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="js/tether.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/bootstrap-switch.js"></script>
+<script src="js/nouislider.min.js" type="text/javascript"></script>
+<script src="js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="js/now-ui-kit.js" type="text/javascript"></script>
+<script src="js/analytics.js"></script>
+<script src="js/all.min.js"></script>
+<script src="js/controladorPerfilCLiente.js"></script>
+
+</html>

@@ -1,0 +1,84 @@
+.cabecera{
+    background-image: url("../img/universo2.jpg") !important;
+    background-size: cover;
+}
+
+#nav-principal{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 200px;
+    padding-right: 170px;
+    background: transparent;
+}
+
+.btn-outline-verde{
+    color: #1f886c;
+    border-color: #1F886c;
+    margin: 5px;
+}
+.btn-outline-verde:hover{
+    background-color: #1F886c;
+    color:white;
+}
+
+#actualizar{
+    color: white;
+    font-size: 1.1rem;
+}
+
+.tigo{
+    color:white;
+    font-family:inherit;
+    
+}
+
+#cards{
+    color:rgb(27, 52, 99);
+}
+
+#mision{
+    background-color: transparent;
+    border-color: #1F886c;
+    color: white;
+    border-width: thick;
+
+}
+
+#vision{
+    background-color: transparent;
+    border-color: #1F886c;
+    color: white;
+    border-width: thick;
+
+
+}
+
+#contactarnos{
+    color:white;
+}
+
+#footer{
+    color:white;
+}
+
+#modalPromociones{
+    color:black;
+    font-weight: bolder;
+    
+
+}
+
+#modalContactanos{
+    color:black;
+    font-weight: bolder;
+}
+
+#actualizar{
+    color:black;
+    font-weight: bolder;
+    font-size: small;
+}
+
+.formulariomodal{
+    width: 100px;
+}

@@ -1,0 +1,45 @@
+body{
+    background-image: url(../img/universo2.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    margin:0;
+}
+
+#contenedor{
+    background-color:rgba(0,0,0,0.0);
+    height: 100vh;
+}
+
+#logo{
+
+    width: 140px;
+    margin-top: 50px;
+    margin-left: 75px;
+    margin-bottom: 15px;
+
+}
+
+#registro{
+    background-color: #000000c4;
+    width: 1000px;
+    color: white;
+    border-radius: 5px;
+    padding: 30px 80px 30px 80px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 600px;
+}
+
+/*<div class="col-md-4 mb-3">
+            <label for="validationCustomUsername">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+              </div>
+              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username"
+                aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </div>
+          </div>*/

@@ -1,0 +1,140 @@
+.is-content {
+    margin-top: 20px
+}
+
+#bsaHolder {
+    right: 25px;
+    position: absolute;
+    top: 0;
+    width: 345px;
+    z-index: 10
+}
+
+#bsa_closeAd {
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    right: 11px;
+    border: none !important;
+    z-index: 1;
+    text-decoration: none !important;
+}
+
+#carbonads,
+#carbonads span {
+    overflow: hidden;
+    display: block
+}
+
+#carbonads {
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    line-height: 1.5
+}
+
+.carbon-img {
+    display: block;
+    margin: 0 auto 1em;
+    text-align: center;
+    float: left !important;
+    margin-right: 10px !important
+}
+
+.carbon-text {
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 90% !important;
+    line-height: 130% !important;
+    min-width: 120px !important;
+    color: #06c !important
+}
+
+.carbon-poweredby,
+.carbon-wrap,
+.carbon-wrap a {
+    display: block !important
+}
+
+.carbon-wrap {
+    background: #f1f1f1 !important;
+    padding: 15px 15px 10px !important
+}
+
+.carbon-poweredby {
+    color: #6e6e6e !important;
+    text-decoration: underline !important;
+    font-size: 65% !important;
+    font-style: italic !important;
+    text-align: center !important;
+    margin: 8px 0 0 !important
+}
+
+#carbonads {
+    background: #fff !important;
+    padding: 0 !important
+}
+.bg-primary{
+    background-color: #1F886c !important;
+}
+.btn-primary{
+    background-color: #1F886c !important;
+}
+.card-img-top{
+    width: 100%;
+    height: 250px;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
+.img-profile-folow{
+    margin-top: -60px !important;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    width: 100px !important;
+    height: 85px;
+}
+
+.card{
+    min-height: 190px !important;
+    height: 498px;
+}
+.card-block{
+    min-height: 190px !important;
+    -webkit-box-flex: 1;
+    padding: 1.25rem !important;
+}
+h4{
+    margin: 0;
+}
+
+.imgmedia{
+    width: 100px !important;
+}
+.btn-redes{
+    background-color: #1F886c ;
+}
+.needs-validation{
+    padding-top: 10px;
+}
+.formulariomodal{
+    margin-bottom: 10px;
+}
+.btn-outline-verde{
+    color: #1f886c;
+    border-color: #1F886c;
+    margin: 5px;
+}
+.carta-empresa{
+    min-height: 200px;
+    height: 550px !important;
+}
+
+.carta-producto{
+    min-height: 200px;
+    height: 600px !important; 
+}
+

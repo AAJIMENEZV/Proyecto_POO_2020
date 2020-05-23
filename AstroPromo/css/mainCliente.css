@@ -1,0 +1,72 @@
+#body{
+    background-color:#0b0f13;
+}
+#elnavbar{
+    border: 10px;
+    border-style: double;
+    padding: 20px;
+    border-color: #1F886c;
+}
+#columna1,#columna2{
+padding: 30px;
+}
+.btn-outline-verde{
+    color: #1f886c;
+    border-color: #1F886c;
+    margin: 5px;
+}
+.btn-outline-verde:hover{
+    background-color: #1F886c;
+    color:white;
+}
+
+.card-img-top{
+    size:2.1rem;
+}
+
+.columna-transparente{
+    background-color:#00000062;
+    color: #1F886c;
+}
+
+.texto{
+    color:#1F886c;
+}
+
+.texto:hover{
+    color:#1F886c;
+}
+
+body{
+    background-image: url("../img/universo2.jpg") !important;
+    background-size: cover;
+}
+
+.cuadrito{
+    border-color: #1F886c;
+    border-width: medium;
+}
+
+input[type=search]{
+    background: transparent;
+    border:none;
+    border-bottom:2px solid #1F886c;
+}
+
+input[type=search]:hover{
+    background: transparent;
+    border:2px solid #1F886c;
+}
+
+input[type=search]:focus{
+    background: transparent;
+    border:2px solid #1F886c;
+}
+
+.cards{
+    background-color:#0000007e;
+}
+
+.letras-cards{
+    color:white;
+}
