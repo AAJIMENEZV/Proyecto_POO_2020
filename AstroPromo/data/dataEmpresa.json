@@ -1,6 +1,7 @@
 [
     {
         "nombreEmpresa": "Jetstereo",
+        "imagenesEmpresas":["/img/jet1.jpg"],
         "pais": "Honduras",
         "direccion": "Col. Pedro Pablo Leon Jaramillo",
         "longitud":"125.36",
