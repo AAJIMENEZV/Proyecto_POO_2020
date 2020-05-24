@@ -49,7 +49,8 @@ class Empresa
                     'logotipo' => $this->logotipo,
                     'telefono' => $this->telefono,
                     'banner' => $this->banner,
-                    'redesSociales' => $this->redesSociales
+                    'redesSociales' => $this->redesSociales,
+                    'refIdUsuario'=>$this->refIdUsuario
                 ]);
                 return '{"codigoResultado":"1","mensaje":"Guardado con exito"}';
             } else {

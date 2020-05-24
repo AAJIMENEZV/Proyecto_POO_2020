@@ -39,7 +39,7 @@ class Cliente
         $this->numeroTelefono = $numeroTelefono;
         $this->numeroTarjeta = $numeroTarjeta;
         $this->fotoPortada = $fotoPortada;
-        $this->refIdUsuario = "/Usuario/".$idUsuario;
+        $this->refIdUsuario = "Usuario/".$idUsuario;
     }
 
     public function guardarCliente()
@@ -331,13 +331,14 @@ class Cliente
 
 }
 
-/*$cliente = new Cliente();
-//$cliente->setTodo("jose@gmail.com", "Jose", "Pineda", "02/12/1998", "img4", "Masculino", "95987526", "0502060305", "img7");
+$cliente = new Cliente();
+//$cliente->setTodo( "Mario", "Pineda", "02/12/1998", "img4", "Masculino", "95987526", "0502060305", "img7","jose@gmail.com");
 //print_r($cliente->guardarCliente());
 //print_r($cliente->obtenerCliente("jose@gmail.com"));
-//print_r($cliente->getNombre());
-$cliente->setFechaNacimiento("03/10/1996");
-print_r($cliente->actualizarCliente());
-//print_r($cliente->eliminarCliente('5c878d4885244dc79f78'));*/
-$ref="/usuario/cualquiercosa";
-print_r(explode("/",$ref));
+//print_r($cliente->getIdCliente());
+//$cliente->setIdCliente("b70089bc051e457bb69d");
+//$cliente->setFechaNacimiento("06/10/1996");
+//print_r($cliente->actualizarCliente());
+//print_r($cliente->eliminarCliente());
+/*$ref="/usuario/cualquiercosa";
+print_r(explode("/",$ref));*/
