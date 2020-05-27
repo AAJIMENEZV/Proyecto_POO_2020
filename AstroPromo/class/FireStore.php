@@ -72,7 +72,8 @@ class Firestore
             throw new Exception('No existe');
         }
     }
-
+   
+    
 
     public function newCollection(string $name, string $doc_name, array $data = [])
     {
