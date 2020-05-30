@@ -21,7 +21,8 @@ $(function () {
 
 $("#btn-login").click(function () {
   var parametros = $("#form-login").serialize();
-  console.log('Login :' + parametros);
+  $(this).attr('disabled',true);
+  $(this).html('Cargando...');
   $.ajax({
     url: "http://localhost/POO/Proyecto/AstroPromo/api/usuario.php?accion=login",
     method: "POST",
@@ -41,12 +42,15 @@ $("#btn-login").click(function () {
           window.location.href = 'perfilCliente.html';
         }
       }else{
-        alert('Credenciales invalidas');
+        alert(res.mensaje);
       }
-      console.log(res);
+      $(this).attr('disabled', false);
+      $(this).html('Entrar');
     },
     error: (error) => {
-      console.log(error);
+      alert("Sucedió un error");
+      $(this).attr('disabled', false);
+      $(this).html('Entrar');
     }
   });
 });

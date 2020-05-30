@@ -22,15 +22,15 @@
       <div class="container">
         <section>
           <h3>Registro Cliente</h3>
-          <form class="needs-validation" id="form-cliente" novalidate>
+          <form class="needs-validation" id="form-cliente" novalidate action="upload.php" method="post" enctype="multipart/form-data">
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="nombre" id="nombreCliente" placeholder="Ingrese su Nombre"
-                    aria-describedby="inputGroupPrepend" required>
+                  <input type="text" class="form-control" name="nombre" id="nombreCliente"
+                    placeholder="Ingrese su Nombre" aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -44,8 +44,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="apellido" id="apellidoCLiente" placeholder="Ingrese su Apellido"
-                    aria-describedby="inputGroupPrepend" required>
+                  <input type="text" class="form-control" name="apellido" id="apellidoCLiente"
+                    placeholder="Ingrese su Apellido" aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -59,8 +59,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-envelope"></i></span>
                   </div>
-                  <input type="email" class="form-control" name="correo" id="correoCLiente" placeholder="Ingrese su correo"
-                    aria-describedby="inputGroupPrepend" required>
+                  <input type="email" class="form-control" name="correo" id="correoCLiente"
+                    placeholder="Ingrese su correo" aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -76,8 +76,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-calendar-alt"></i></span>
                   </div>
-                  <input type="date" class="form-control"  name="fechaNacimiento" id="fechaNacimiento" placeholder="Fecha Nacimiento"
-                    aria-describedby="inputGroupPrepend" required>
+                  <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento"
+                    placeholder="Fecha Nacimiento" aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -91,7 +91,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-venus-mars"></i></span>
                   </div>
-                  <input type="text" class="form-control"  name="genero" id="genero" placeholder="Genero"
+                  <input type="text" class="form-control" name="genero" id="genero" placeholder="Genero"
                     aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
@@ -106,8 +106,9 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-image"></i></span>
                   </div>
-                  <input type="file" class="form-control" name="fotoPerfil" id="fotoPerfil" placeholder="Foto de Perfil"
-                    aria-describedby="inputGroupPrepend" required>
+                  
+                    <input type="file" class="form-control" name="fotoPerfil" id="fotoPerfil"
+                      placeholder="Foto de Perfil" aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -123,8 +124,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-mobile-alt"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="numeroTelefono" id="telefonoCLiente" placeholder="Ingrese su #Telefono"
-                    aria-describedby="inputGroupPrepend" required>
+                  <input type="text" class="form-control" name="numeroTelefono" id="telefonoCLiente"
+                    placeholder="Ingrese su #Telefono" aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -138,8 +139,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-mobile-alt"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="numeroTarjeta" id="tarjetaCLiente" placeholder="Ingrese su #Tarjeta"
-                    aria-describedby="inputGroupPrepend" required>
+                  <input type="text" class="form-control" name="numeroTarjeta" id="tarjetaCLiente"
+                    placeholder="Ingrese su #Tarjeta" aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -153,8 +154,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-image"></i></span>
                   </div>
-                  <input type="file" class="form-control" name="fotoPortada" id="fotoPortadaCLiente" placeholder="Foto de Portada"
-                    aria-describedby="inputGroupPrepend" required>
+                  <input type="file" class="form-control" name="fotoPortada" id="fotoPortada"
+                    placeholder="Foto de Portada" aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -170,8 +171,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-unlock"></i></span>
                   </div>
-                  <input type="password" class="form-control" name="contrasena" id="contrasenaCLiente" placeholder="Ingrese su contraseña"
-                    aria-describedby="inputGroupPrepend" required>
+                  <input type="password" class="form-control" name="contrasena" id="contrasenaCLiente"
+                    placeholder="Ingrese su contraseña" aria-describedby="inputGroupPrepend" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>

@@ -38,14 +38,14 @@ class Usuario
     public function guardarUsuario()
     {
         if (empty($this->fs->getWhere("correo", $this->correo))) {
-           // $hash = password_hash($this->contrasena,  self::HASH, ['cost' => self::COST]);
+           $hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
             try {
                 $this->idUsuario = $this->fs->newDocument([
                     'correo' => $this->correo,
                     'cliente' => $this->cliente,
                     'empresa' => $this->empresa,
                     'superUsuario' => $this->superUsuario,
-                    'contrasena' => $this->contrasena,
+                    'contrasena' => $hash,
                     'token' => $this->token
                 ]);
                 return '{"codigoResultado":"1","mensaje":"Guardado con exito"}';
@@ -118,12 +118,8 @@ class Usuario
     public function login($correo, $contrasena)
     {
         $this->obtenerUsuario($correo);
-        $respuesta["contrasena"] = $contrasena;
-        if ($this->contrasena == $contrasena) {
-            /*if (password_needs_rehash($this->contrasena, self::HASH, ['cost' => self::COST])) {
-                $nuevoHash =password_hash($contrasena, self::HASH, ['cost' => self::COST]);
-                $this->contrasena = $nuevoHash;
-            }*/
+        if (password_verify($contrasena,$this->contrasena)) {
+           
             $respuesta["cliente"] = $this->cliente;
             $respuesta["empresa"] = $this->empresa;
             $respuesta["superUsuario"] = $this->superUsuario;
@@ -136,10 +132,10 @@ class Usuario
             $this->actualizarUsuario();
         } else {
             $respuesta["valido"] = false;
-            $respuesta["error"] = "Fallo password verify";
+            $respuesta["mensaje"] = "Contraeña incorrecta";
         }
 
-        return json_encode($respuesta);
+        return $respuesta;
     }
 
     public static function logout()
@@ -150,6 +146,10 @@ class Usuario
         //echo '{"mensaje" : "Cerrar Sesion"}';
     }
 
+    public function validarTokenCorreo($token,$correo){
+        $this->obtenerUsuario($correo);
+        return $this->token==$token;
+    }
     public function verificarAutenticacion()
     {
         $_COOKIE['correo'];
@@ -172,11 +172,13 @@ class Usuario
                 setcookie('token',  $respuesta["token"], time() + (86400 * 30), "/");
             } else {
                 $respuesta["valido"] = false;
+                $respuesta["mensaje"]= "Correo ya registrado";
             }
         } else {
             $respuesta["valido"] = false;
+            $respuesta["mensaje"]= "Contraseñas no coinciden";
         }
-        return json_encode($respuesta);
+        return $respuesta;
     }
 
 

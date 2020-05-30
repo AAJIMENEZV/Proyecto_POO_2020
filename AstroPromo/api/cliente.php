@@ -1,23 +1,16 @@
 <?php 
      header("Content-Type: application/json");
      include_once("../class/class-cliente.php");
-     $_POST = json_decode(file_get_contents('php://input'),true);
+     include_once("../class/class-usuario.php");
+     //$_POST = json_decode(file_get_contents('php://input'),true);
      switch($_SERVER['REQUEST_METHOD']){
         case 'POST':
-            $cliente = new Cliente(
-                $_POST['nombre'],
-                $_POST['apellido'],
-                $_POST['fechaNacimiento'],
-                $_POST['fotoPerfil'],
-                $_POST['genero'],
-                $_POST['numeroTelefono'],
-                $_POST['numeroTarjeta'],
-                $_POST['fotoPortada'],
-                $_POST['refIdUsuario']
-            );
-            $cliente->guardarCliente();
+           
         break;
         case 'GET':
+            //validar usuario
+            //verificar si es cliente o empresa
+            //si es valido obtener el cliente
             if(isset($_GET[''])){
                
             }if(isset($_GET[''])){
