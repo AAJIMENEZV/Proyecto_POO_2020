@@ -1,5 +1,7 @@
 <?php
 require_once 'Firestore.php';
+require_once 'class-seguidor.php';
+require_once 'class-empresa.php';
 
 class Cliente
 {
@@ -39,7 +41,7 @@ class Cliente
         $this->numeroTelefono = $numeroTelefono;
         $this->numeroTarjeta = $numeroTarjeta;
         $this->fotoPortada = $fotoPortada;
-        $this->refIdUsuario = "Usuario/".$idUsuario;
+        $this->refIdUsuario = "Usuario/" . $idUsuario;
     }
 
     public function guardarCliente()
@@ -55,7 +57,7 @@ class Cliente
                     'numeroTelefono' => $this->numeroTelefono,
                     'numeroTarjeta' => $this->numeroTarjeta,
                     'fotoPortada' => $this->fotoPortada,
-                    'refIdUsuario'=>$this->refIdUsuario
+                    'refIdUsuario' => $this->refIdUsuario
                 ]);
                 return '{"codigoResultado":"1","mensaje":"Guardado con exito"}';
             } else {
@@ -67,10 +69,42 @@ class Cliente
         }
     }
 
+   public function empresasSeguidas(){
+    $seguidor = new Seguidor();
+    try {
+        $query = $seguidor->obtenerSeguidorCliente($this->idCliente);//este me devuelve un arreglo de los documentos con el id del cliente
+        $empresas = array();
+        if (!empty($query)) {
+            foreach ($query as &$documento) {
+                $empresa = new Empresa();
+                $empresa->setIdEmpresa(explode("/", $documento['refIdEmpresa'])[1]);
+                $respuesta = $empresa->obtenerEmpresaPorId();
+                if($respuesta['valido'])
+                {
+                    $empresas[]= $empresa;
+                }  
+            }
+            $respuesta["valido"] = true;
+            $respuesta["empresas"]=$empresas;
+            return $respuesta;
+        } else {
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = "Empresa no encontrada";
+            return $respuesta;
+        }
+
+    }catch(Exception $e){
+
+    }
+   }
+
+    
+
+
     public function obtenerCliente($idUsuario)
     {
         try {
-            $query = $this->fs->getWhere("refIdUsuario", "/Usuario/".$idUsuario);
+            $query = $this->fs->getWhere("refIdUsuario", "Usuario/" . $idUsuario);
             if (!empty($query)) {
                 $documento = $query[0];
                 $this->idCliente = $documento["id"];
@@ -82,16 +116,22 @@ class Cliente
                 $this->numeroTelefono = $documento["numeroTelefono"];
                 $this->numeroTarjeta = $documento["numeroTarjeta"];
                 $this->fotoPortada = $documento["fotoPortada"];
-                return '{"codigoResultado":"1","mensaje":"Obtenido con exito"}';
+                $respuesta["valido"] = true;
+                $respuesta["mensaje"] = "Obtenido con exito";
+                return $respuesta;
             } else {
-                return '{"codigoResultado":"0","mensaje":"No encontrado"}';
+                $respuesta["valido"] = false;
+                $respuesta["mensaje"] = "No encontrado";
+                return $respuesta;
             }
         } catch (Exception $e) {
-            return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = $e->getMessage();
+            return $respuesta;
         }
     }
 
-    
+
 
     public function actualizarCliente()
     {
@@ -122,12 +162,14 @@ class Cliente
         }
     }
 
-    public function getIdUsuario(){
-        return explode("/",$this->refIdUsuario)[2];
+    public function getIdUsuario()
+    {
+        return explode("/", $this->refIdUsuario)[2];
     }
 
-    public function setIdUsuario($idUsuario){
-        $this->refIdUsuario = "/Usuario/".$idUsuario;
+    public function setIdUsuario($idUsuario)
+    {
+        $this->refIdUsuario = "Usuario/" . $idUsuario;
     }
     /**
      * Get the value of nombre
@@ -330,13 +372,12 @@ class Cliente
 
         return $this;
     }
-
 }
 
-$cliente = new Cliente();
+//$cliente = new Cliente();
 //$cliente->setTodo( "Mario", "Pineda", "02/12/1998", "img4", "Masculino", "95987526", "0502060305", "img7","jose@gmail.com");
 //print_r($cliente->guardarCliente());
-//print_r($cliente->obtenerCliente("jose@gmail.com"));
+//print_r($cliente->empresasSeguidas("00ef838122ef43e3afc6"));
 //print_r($cliente->getIdCliente());
 //$cliente->setIdCliente("b70089bc051e457bb69d");
 //$cliente->setFechaNacimiento("06/10/1996");

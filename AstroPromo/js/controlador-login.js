@@ -19,29 +19,50 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 });
 
+$(document).ready(function () {
+  $.ajax({
+    url: "http://localhost/POO/Proyecto/AstroPromo/api/usuario.php?accion=verificarLogeado",
+    method: "POST",
+    dataType: 'json',
+    success: (res) => {
+      if (res.valido) {
+        if (res.superUsuario) {
+          window.location.href = 'superUsuario.html';
+        }
+        if (res.empresa) {
+          window.location.href = 'perfilEmpresa.html';
+        }
+        if (res.cliente) {
+          window.location.href = 'perfilCliente.html';
+        }
+      }
+    },
+  });
+});
+
 $("#btn-login").click(function () {
   var parametros = $("#form-login").serialize();
-  $(this).attr('disabled',true);
+  $(this).attr('disabled', true);
   $(this).html('Cargando...');
   $.ajax({
     url: "http://localhost/POO/Proyecto/AstroPromo/api/usuario.php?accion=login",
     method: "POST",
-    data:parametros,
+    data: parametros,
     dataType: 'json',
     success: (res) => {
-    
-      if (res.valido){
-        
-        if(res.superUsuario){
+
+      if (res.valido) {
+
+        if (res.superUsuario) {
           window.location.href = 'superUsuario.html';
         }
-        if(res.empresa){
+        if (res.empresa) {
           window.location.href = 'perfilEmpresa.html';
         }
-        if(res.cliente){
+        if (res.cliente) {
           window.location.href = 'perfilCliente.html';
         }
-      }else{
+      } else {
         alert(res.mensaje);
       }
       $(this).attr('disabled', false);

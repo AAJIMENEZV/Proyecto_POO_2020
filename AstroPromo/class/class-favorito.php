@@ -19,9 +19,9 @@ class Favorito
         $idCliente,
         $fechaFavorito
     ) {
-        $this->refIdProducto = $idProducto;
-        $this->refIdPromocion = $idPromocion;
-        $this->refIdCliente = $idCliente;
+        $this->refIdProducto = "Producto/".$idProducto;
+        $this->refIdPromocion = "Promocion/".$idPromocion;
+        $this->refIdCliente = "Cliente/".$idCliente;
         $this->fechaFavorito = $fechaFavorito;
     }
 
@@ -94,7 +94,7 @@ class Favorito
 
     public function setIdProducto($idProducto)
     {
-        $this->refIdProducto = "/Producto/" . $idProducto;
+        $this->refIdProducto = "Producto/" . $idProducto;
     }
 
     public function getIdPromocion()
@@ -104,7 +104,7 @@ class Favorito
 
     public function setIdPromocion($idPromocion)
     {
-        $this->refIdPromocion = "/Promocion/" . $idPromocion;
+        $this->refIdPromocion = "Promocion/" . $idPromocion;
     }
 
     public function getIdCliente()
@@ -114,7 +114,7 @@ class Favorito
 
     public function setIdCliente($idCliente)
     {
-        $this->refIdCliente = "/Cliente/" . $idCliente;
+        $this->refIdCliente = "Cliente/" . $idCliente;
     }
 
 

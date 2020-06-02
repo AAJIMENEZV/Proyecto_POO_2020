@@ -28,7 +28,7 @@ class Producto
           $this->descripcion = $descripcion;
           $this->precio = $precio;
           $this->fotoProducto = $fotoProducto;
-          $this->refIdEmpresa = "/Empresa/" . $idEmpresa;
+          $this->refIdEmpresa = "Empresa/" . $idEmpresa;
      }
 
      public function guardarProducto()
@@ -100,7 +100,7 @@ class Producto
 
      public function setIdEmpresa($idEmpresa)
      {
-          $this->refIdEmpresa = "/Empresa/" . $idEmpresa;
+          $this->refIdEmpresa = "Empresa/" . $idEmpresa;
      }
 
      /**

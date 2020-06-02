@@ -12,6 +12,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case 'POST':
         if (isset($_GET['accion'])) {
             switch ($_GET['accion']) {
+                case 'verificarLogeado':
+                    $usuario = new Usuario();
+                    $respuesta = $usuario->verificarAutenticacion();
+                    echo json_encode($respuesta);
+                break;
+                case 'logout':
+                    Usuario::logout();
+                break;
                 case 'login':
                     $usuario = new Usuario();
                     $respuesta = $usuario->login($_POST['correo'], $_POST['contrasena']);
@@ -89,17 +97,20 @@ switch ($_SERVER['REQUEST_METHOD']) {
         }
         break;
     case 'GET':
-        if (isset($_GET['accion']) && $_GET['accion'] == 'logout')
-            Usuario::logout();
-        exit();
-        break;
+        $usuario = new Usuario();
+        if($usuario->verificarAutenticacionCliente()){
+            echo "se encontro";
+        }else{
+            echo "No se encontro";
+        }
 
-    case 'GET':
-        if (isset($_GET[''])) {
+       /* if (isset($_GET[''])) {
+            
+            
         }
         if (isset($_GET[''])) {
         } else {
-        }
+        }*/
         break;
     case 'PUT':
         break;

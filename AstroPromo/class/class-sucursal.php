@@ -26,7 +26,7 @@ class Sucursal
         $this->direccionSucursal = $direccionSucursal;
         $this->logintud = $logintud;
         $this->latitud = $latitud;
-        $this->refIdEmpresa = "/Empresa/" . $idEmpresa;
+        $this->refIdEmpresa = "Empresa/" . $idEmpresa;
     }
 
     public function guardarSucursal()
@@ -98,7 +98,7 @@ class Sucursal
 
     public function setIdEmpresa($idEmpresa)
     {
-        $this->refIdEmpresa = "/Empresa/" . $idEmpresa;
+        $this->refIdEmpresa = "Empresa/" . $idEmpresa;
     }
 
     /**

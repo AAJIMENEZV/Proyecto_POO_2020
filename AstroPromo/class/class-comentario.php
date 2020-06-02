@@ -16,8 +16,8 @@ require_once 'Firestore.php';
             $idCliente,
             $comentario
         ){
-            $this->refIdPromocion="/Promocion/".$idPromocion;
-            $this->refIdCliente="/Cliente/".$idCliente;
+            $this->refIdPromocion="Promocion/".$idPromocion;
+            $this->refIdCliente="Cliente/".$idCliente;
             $this->comentario=$comentario;
         }
 
@@ -87,7 +87,7 @@ require_once 'Firestore.php';
 
     public function setIdPromocion($idPromocion)
     {
-        $this->refIdPromocion = "/Promocion/" . $idPromocion;
+        $this->refIdPromocion = "Promocion/" . $idPromocion;
     }
 
     public function getIdCliente()
@@ -97,7 +97,7 @@ require_once 'Firestore.php';
 
     public function setIdCliente($idCliente)
     {
-        $this->refIdCliente = "/Cliente/" . $idCliente;
+        $this->refIdCliente = "Cliente/" . $idCliente;
     }
 
         

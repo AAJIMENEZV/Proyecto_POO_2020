@@ -38,7 +38,7 @@ class Usuario
     public function guardarUsuario()
     {
         if (empty($this->fs->getWhere("correo", $this->correo))) {
-           $hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
+            $hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
             try {
                 $this->idUsuario = $this->fs->newDocument([
                     'correo' => $this->correo,
@@ -118,17 +118,16 @@ class Usuario
     public function login($correo, $contrasena)
     {
         $this->obtenerUsuario($correo);
-        if (password_verify($contrasena,$this->contrasena)) {
-           
+        if (password_verify($contrasena, $this->contrasena)) {
+
             $respuesta["cliente"] = $this->cliente;
             $respuesta["empresa"] = $this->empresa;
             $respuesta["superUsuario"] = $this->superUsuario;
             $respuesta["valido"] = true;
-            $respuesta["correo"] = $correo;
-            $respuesta["token"] = bin2hex(openssl_random_pseudo_bytes(16));
-            setcookie('correo',  $respuesta["correo"], time() + (86400 * 30), "/");
-            setcookie('token',  $respuesta["token"], time() + (86400 * 30), "/");
-            $this->token = $respuesta["token"];
+            $token = bin2hex(openssl_random_pseudo_bytes(16));
+            setcookie('correo',  $correo, time() + (86400 * 30), "/");
+            setcookie('token',  $token, time() + (86400 * 30), "/");
+            $this->token = $token;
             $this->actualizarUsuario();
         } else {
             $respuesta["valido"] = false;
@@ -146,14 +145,49 @@ class Usuario
         //echo '{"mensaje" : "Cerrar Sesion"}';
     }
 
-    public function validarTokenCorreo($token,$correo){
-        $this->obtenerUsuario($correo);
-        return $this->token==$token;
-    }
     public function verificarAutenticacion()
     {
-        $_COOKIE['correo'];
-        $_COOKIE['token'];
+        $this->obtenerUsuario($_COOKIE['correo']);
+        if ($this->token == $_COOKIE['token']) {
+            $respuesta["cliente"] = $this->cliente;
+            $respuesta["empresa"] = $this->empresa;
+            $respuesta["superUsuario"] = $this->superUsuario;
+            $respuesta["valido"] = true;
+        } else {
+            $respuesta["valido"] = false;
+        }
+        return $respuesta;
+    }
+    public function verificarAutenticacionEmpresa()
+    {
+        $this->obtenerUsuario($_COOKIE['correo']);
+        if ($this->empresa) {
+            if ($this->token == $_COOKIE['token']) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function verificarAutenticacionCliente()
+    {
+        $this->obtenerUsuario($_COOKIE['correo']);
+        if ($this->cliente) {
+            if ($this->token == $_COOKIE['token']) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public function verificarAutenticacionSuperUsuario()
+    {
+        $this->obtenerUsuario($_COOKIE['correo']);
+        if ($this->superUsuario) {
+            if ($this->token == $_COOKIE['token']) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public function registro($confirmacionContraseña)
@@ -172,11 +206,11 @@ class Usuario
                 setcookie('token',  $respuesta["token"], time() + (86400 * 30), "/");
             } else {
                 $respuesta["valido"] = false;
-                $respuesta["mensaje"]= "Correo ya registrado";
+                $respuesta["mensaje"] = "Correo ya registrado";
             }
         } else {
             $respuesta["valido"] = false;
-            $respuesta["mensaje"]= "Contraseñas no coinciden";
+            $respuesta["mensaje"] = "Contraseñas no coinciden";
         }
         return $respuesta;
     }
@@ -322,17 +356,3 @@ class Usuario
         return $this;
     }
 }
-$usuario = new Usuario();
-$usuario->setTodo("hola@gmail.com", "true", "false", "false", "hola", "");
-$usuario->registro("hola");
-//$usuario->login("senchillo@gmail.com","asd.456");
-//print_r($usuario->guardarUsuario());
-//print_r($usuario->obtenerUsuario("empresass@gmail.com"));
-//print_r($usuario->getContrasena());
-//print_r($usuario->eliminarUsuario('DpKWkxJIq3Tav2cr6BWP'));
-//print_r($usuario->actualizarUsuario());
-/*if(password_verify('hola','$2y$10$.EUxAW5zRlOdBQvDO2GYU.iCd0/XI4U9AgsV2JNrmsT5jwfm8oa1a')){
-    print_r("Valido");
-}else{
-    print_r("inValido");
-};*/

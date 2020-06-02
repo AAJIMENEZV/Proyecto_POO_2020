@@ -67,7 +67,9 @@ class Firestore
     {
         if (empty($id)) throw new Exception('Falta ID');
         if ($this->db->collection($this->name)->document($id)->snapshot()->exists()) {
-            return $this->db->collection($this->name)->document($id)->snapshot()->data();
+            $documento= $this->db->collection($this->name)->document($id)->snapshot()->data();
+            $documento["id"]=$id;
+            return $documento;
         } else {
             throw new Exception('No existe');
         }

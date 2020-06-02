@@ -50,7 +50,7 @@
   <!-- End Navbar -->
   <div class="wrapper">
     <div class="page-header page-header-small">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('img/nike.jpg');">
+      <div class="page-header-image" data-parallax="true" id="perfil-banner">
       </div>
     </div>
     <div class="section">
@@ -59,11 +59,12 @@
           <div class="col-md-3">
             <div class="content-center text-center porfile-content">
               <div class="photo-container">
-                <img src="img/nike2.jpg" alt="">
+                <img id="perfil-logotipo" alt="">
               </div>
-              <h3 class="title">Nike</h3>
-              <p class="category">Just Do It</p>
-              <p class="category">nike@gmail.com</p>
+              <h3 class="title" id="perfil-nombre"></h3>
+              <p class="category"><span id="perfil-pais"></span> | <span id="perfil-direccion"></span> | <span
+                  id="perfil-numeroTelefono"></span></p>
+              <p class="category" id="perfil-correo"></p>
               <a href="#button" class="btn  btn-round btn-redes " rel="tooltip" title="Twitter">
                 <i class="fab fa-twitter fa-2x"></i>
               </a>
@@ -369,8 +370,7 @@
 
               <div class="tab-pane " id="estadistica" role="tabpanel">
                 <div class="container-fluid">
-                  <div class="card carta-empresa
-     " style="padding: 10px;">
+                  <div class="card carta-empresa " style="padding: 10px;">
                     <img class="card-img-top" src="img/estadis.jfif" alt="Estadistica">
                     <div class="card-block">
                       <img class="img-profile-folow" src="img/logoesta.jfif" alt="">
@@ -579,9 +579,9 @@
           <div class="modal-body">
             <div class="card carta-empresa " style="padding: 10px;">
 
-              <form class="needs-validation" novalidate>
+              <form class="needs-validation" novalidate id="form-producto">
                 <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="nombreProducto"
+                  <input type="text" class="form-control formulariomodal" name="nombreProducto" id="nombreProducto"
                     placeholder="Nombre Producto" required>
                   <div class="valid-feedback">
                     Correcto.
@@ -591,8 +591,8 @@
                   </div>
                 </div>
                 <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="descripcionnProducto"
-                    placeholder="Descripcion" required>
+                  <input type="text" class="form-control formulariomodal" name="descripcionProducto"
+                    id="descripcionProducto" placeholder="Descripcion" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -601,7 +601,7 @@
                   </div>
                 </div>
                 <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="precioProducto"
+                  <input type="text" class="form-control formulariomodal" name="precioProducto" id="precioProducto"
                     placeholder="Precio de Producto" required>
                   <div class="valid-feedback">
                     Correcto.
@@ -611,9 +611,9 @@
                   </div>
                 </div>
                 <div class="form-row col-12">
-                  <label for="fotoProducto">Foto del Prodcucto</label>
-                  <input type="file" class="form-control formulariomodal" id="fotoProducto" placeholder="fotoProducto"
-                    required>
+                  <label for="fotoProducto">Foto del Producto</label>
+                  <input type="file" class="form-control formulariomodal" name="foto-Producto" id="foto-Producto"
+                    placeholder="fotoProducto" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -622,7 +622,8 @@
                   </div>
                 </div>
                 <div style="text-align: center;">
-                  <button class="btn btn-outline-success" id="btn-registrate">Agregar</button>
+                  <button class="btn btn-outline-success" type="button" id="btn-registrarProducto">Agregar
+                    Producto</button>
                 </div>
               </form>
 
@@ -660,8 +661,8 @@
                   </div>
                 </div>
                 <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="latitudSucursal"
-                    placeholder="Latitud" required>
+                  <input type="text" class="form-control formulariomodal" id="latitudSucursal" placeholder="Latitud"
+                    required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -670,8 +671,8 @@
                   </div>
                 </div>
                 <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="longitudSucursal"
-                    placeholder="Longitud" required>
+                  <input type="text" class="form-control formulariomodal" id="longitudSucursal" placeholder="Longitud"
+                    required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -718,78 +719,78 @@
               <p class="category">Precio Normal: 1000 | Oferta: 30% </p>
               <p class="category">Precio Oferta: 700 | Fecha Limite: 24/04/2020 </p>
               <p class="category">Sucursal Multiplaza</p>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <!--GUANTES-->
-
-
-    <div class="modal fade" id="verGuantes" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-center" role="document">
-        <div class="modal-content">
-          <div class="card carta-empres " style="padding: 10px;">
-            <img class="card-img-top" src="img/guante2.jpg" alt="Guante Portero">
-            <div class="card-block">
-              <img class="img-profile-folow" src="img/2x1.jpg" alt="">
-              <h4>Guantes Portero</h4>
-              <p class="card-text">Sin excepcion alguna, si llevas uno el otro es gratis. Mas resistentes y mayor
-                comodidad.</p>
 
             </div>
           </div>
         </div>
       </div>
-    </div>
 
 
-    <!--BALON-->
-    <div class="modal fade" id="verBalon" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-center" role="document">
-        <div class="modal-content">
-          <div class="card carta-empres " style="padding: 10px;">
-            <img class="card-img-top" src="img/balon2.jpg" alt="Pelota Barsa">
-            <div class="card-block">
-              <img class="img-profile-folow" src="img/nike2.jpg" alt="">
-              <h4>Balón Fútbol</h4>
-              <p class="card-text">Tenemos disponible balones de diferentes estilos al mismo precio. Ahora más
-                resistentes.</p>
 
+      <!--GUANTES-->
+
+
+      <div class="modal fade" id="verGuantes" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-center" role="document">
+          <div class="modal-content">
+            <div class="card carta-empres " style="padding: 10px;">
+              <img class="card-img-top" src="img/guante2.jpg" alt="Guante Portero">
+              <div class="card-block">
+                <img class="img-profile-folow" src="img/2x1.jpg" alt="">
+                <h4>Guantes Portero</h4>
+                <p class="card-text">Sin excepcion alguna, si llevas uno el otro es gratis. Mas resistentes y mayor
+                  comodidad.</p>
+
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
 
+      <!--BALON-->
+      <div class="modal fade" id="verBalon" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-center" role="document">
+          <div class="modal-content">
+            <div class="card carta-empres " style="padding: 10px;">
+              <img class="card-img-top" src="img/balon2.jpg" alt="Pelota Barsa">
+              <div class="card-block">
+                <img class="img-profile-folow" src="img/nike2.jpg" alt="">
+                <h4>Balón Fútbol</h4>
+                <p class="card-text">Tenemos disponible balones de diferentes estilos al mismo precio. Ahora más
+                  resistentes.</p>
 
-    <!--TENIS-->
-    <div class="modal fade" id="verTenis" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-center" role="document">
-        <div class="modal-content">
-          <div class="card">
-            <img class="card-img-top" src="img/tenis2.jpg" alt="Tenis Sport">
-            <div class="card-block">
-              <img class="img-profile-folow" src="img/nike2.jpg" alt="">
-              <h4>Tenis Sport</h4>
-              <p class="card-text">Con los nuevos y mejorados tenis Nike hacer ejercicio nunca fue más fácil.<br>
-                Disponibles en todas nuestras tiendas.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+
+
+      <!--TENIS-->
+      <div class="modal fade" id="verTenis" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-center" role="document">
+          <div class="modal-content">
+            <div class="card">
+              <img class="card-img-top" src="img/tenis2.jpg" alt="Tenis Sport">
+              <div class="card-block">
+                <img class="img-profile-folow" src="img/nike2.jpg" alt="">
+                <h4>Tenis Sport</h4>
+                <p class="card-text">Con los nuevos y mejorados tenis Nike hacer ejercicio nunca fue más fácil.<br>
+                  Disponibles en todas nuestras tiendas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
-
-
-
-  </div>
 
 
 </body>
@@ -803,6 +804,6 @@
 <script src="js/now-ui-kit.js" type="text/javascript"></script>
 <script src="js/analytics.js"></script>
 <script src="js/all.min.js"></script>
-<script src="js/controladorPerfilCLiente.js"></script>
+<script src="js/controladorPerfilEmpresa.js"></script>
 
 </html>

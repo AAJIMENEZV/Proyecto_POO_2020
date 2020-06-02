@@ -35,13 +35,13 @@ class Promocion
         $this->nombrePromocion = $nombrePromocion;
         $this->descripcionPromocion = $descripcionPromocion;
         $this->imagenPromocion = $imagenPromocion;
-        $this->refIdProducto = "/Producto/" . $idProducto;
+        $this->refIdProducto = "Producto/" . $idProducto;
         $this->descuento = $descuento;
         $this->precioNormal = $precioNormal;
         $this->precioPromocion = $precioPromocion;
         $this->fechaVencimiento = $fechaVencimiento;
         $this->fechaInicio = $fechaInicio;
-        $this->refIdEmpresa = "/Empresa/" . $idEmpresa;
+        $this->refIdEmpresa = "Empresa/" . $idEmpresa;
     }
 
     public function guardarPromocion()
@@ -127,7 +127,7 @@ class Promocion
 
     public function setIdEmpresa($idEmpresa)
     {
-        $this->refIdEmpresa = "/Empresa/" . $idEmpresa;
+        $this->refIdEmpresa = "Empresa/" . $idEmpresa;
     }
 
     public function getIdProducto()
@@ -137,7 +137,7 @@ class Promocion
 
     public function setIdProducto($idProducto)
     {
-        $this->refIdProducto = "/Producto/" . $idProducto;
+        $this->refIdProducto = "Producto/" . $idProducto;
     }
     /**
      * Get the value of idPromocion

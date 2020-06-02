@@ -19,9 +19,9 @@ class Venta
         $idCliente,
         $fechaVenta
     ) {
-        $this->refIdPromocion = "/Promocion/" . $idPromocion;
-        $this->refIdProducto = "/Producto/" . $idProducto;
-        $this->refIdCliente = "/Cliente/" . $idCliente;
+        $this->refIdPromocion = "Promocion/" . $idPromocion;
+        $this->refIdProducto = "Producto/" . $idProducto;
+        $this->refIdCliente = "Cliente/" . $idCliente;
         $this->fechaVenta = $fechaVenta;
     }
 
@@ -95,7 +95,7 @@ class Venta
 
     public function setIdPromocion($idPromocion)
     {
-        $this->refIdPromocion = "/Promocion/" . $idPromocion;
+        $this->refIdPromocion = "Promocion/" . $idPromocion;
     }
 
     public function getIdCliente()
@@ -105,7 +105,7 @@ class Venta
 
     public function setIdCliente($idCliente)
     {
-        $this->refIdCliente = "/Cliente/" . $idCliente;
+        $this->refIdCliente = "Cliente/" . $idCliente;
     }
 
     public function getIdProducto()
@@ -115,7 +115,7 @@ class Venta
 
     public function setIdProducto($idProducto)
     {
-        $this->refIdProducto = "/Producto/" . $idProducto;
+        $this->refIdProducto = "Producto/" . $idProducto;
     }
     /**
      * Get the value of fechaVenta

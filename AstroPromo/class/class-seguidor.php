@@ -19,8 +19,8 @@ class Seguidor
                 $idCliente,
                 $fechaSeguidor
         ) {
-                $this->refIdEmpresa = "/Empresa/" . $idEmpresa;
-                $this->refIdCliente = "/Cliente/" . $idCliente;
+                $this->refIdEmpresa = "Empresa/" . $idEmpresa;
+                $this->refIdCliente = "Cliente/" . $idCliente;
                 $this->fechaSeguidor = $fechaSeguidor;
         }
 
@@ -57,7 +57,15 @@ class Seguidor
                         return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
                 }
         }
-
+        public function obtenerSeguidorCliente($idCliente)
+        {
+                try {
+                        $query = $this->fs->getWhere("refIdCliente", "Cliente/" .$idCliente);
+                        return $query;
+                } catch (Exception $e) {
+                        return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
+                }
+        }
         public function actualizarSeguidor()
         {
                 try {
@@ -90,7 +98,7 @@ class Seguidor
 
         public function setIdEmpresa($idEmpresa)
         {
-                $this->refIdEmpresa = "/Empresa/" . $idEmpresa;
+                $this->refIdEmpresa = "Empresa/" . $idEmpresa;
         }
 
         public function getIdCliente()
@@ -100,7 +108,7 @@ class Seguidor
 
         public function setIdCliente($idCliente)
         {
-                $this->refIdCliente = "/Cliente/" . $idCliente;
+                $this->refIdCliente = "Cliente/" . $idCliente;
         }
         /**
          * Get the value of fechaSeguidor
@@ -142,3 +150,5 @@ class Seguidor
                 return $this;
         }
 }
+/*$seguidor = new Seguidor();
+print_r($seguidor->obtenerSeguidorCliente("00ef838122ef43e3afc6"));*/

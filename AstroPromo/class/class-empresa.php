@@ -17,6 +17,19 @@ class Empresa
     {
         $this->fs = new Firestore('Empresa');
     }
+    public function comoArreglo(){
+        $arreglo=array();
+        $arreglo["idEmpresa"]=$this->idEmpresa;
+        $arreglo["nombreEmpresa"]=$this->nombreEmpresa;
+        $arreglo["pais"]=$this->pais;
+        $arreglo["direccion"]=$this->direccion;
+        $arreglo["logotipo"]=$this->logotipo;
+        $arreglo["telefono"]=$this->telefono;
+        $arreglo["banner"]=$this->banner;
+        $arreglo["redesSociales"]=$this->redesSociales;
+        $arreglo["refIdUsuario"]=$this->refIdUsuario;
+        return $arreglo;
+    }
 
     public function setTodo(
         $nombreEmpresa,
@@ -35,7 +48,7 @@ class Empresa
         $this->telefono = $telefono;
         $this->banner = $banner;
         $this->redesSociales = $redesSociales;
-        $this->refIdUsuario = "/Usuario/" . $idUsuario;
+        $this->refIdUsuario = "Usuario/" . $idUsuario;
     }
 
     public function guardarEmpresa()
@@ -66,7 +79,7 @@ class Empresa
     public function obtenerEmpresa($idUsuario)
     {
         try {
-            $query = $this->fs->getWhere("refIdUsuario", "/Usuario/" . $idUsuario);
+            $query = $this->fs->getWhere("refIdUsuario", "Usuario/" . $idUsuario);
             if (!empty($query)) {
                 $documento = $query[0];
                 $this->idEmpresa = $documento["id"];
@@ -77,12 +90,43 @@ class Empresa
                 $this->telefono = $documento["telefono"];
                 $this->banner = $documento["banner"];
                 $this->redesSociales = $documento["redesSociales"];
-                return '{"codigoResultado":"1","mensaje":"Obtenido con exito"}';
+                $this->refIdUsuario = $documento["refIdUsuario"];
+                $respuesta["valido"] = true;
+                $respuesta["mensaje"] = "Obtenido con exito";
+                return $respuesta;
             } else {
-                return '{"codigoResultado":"0","mensaje":"No encontrado"}';
+                $respuesta["valido"] = false;
+                $respuesta["mensaje"] = "No encontrado";
+                return $respuesta;
             }
         } catch (Exception $e) {
-            return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = $e->getMessage();
+            return $respuesta;
+        }
+    }
+
+
+    public function obtenerEmpresaPorId()
+    {
+        try {
+            $documento = $this->fs->getDocument($this->idEmpresa);
+                $this->idEmpresa = $documento["id"];
+                $this->nombreEmpresa = $documento["nombreEmpresa"];
+                $this->pais = $documento["pais"];
+                $this->direccion = $documento["direccion"];
+                $this->logotipo = $documento["logotipo"];
+                $this->telefono = $documento["telefono"];
+                $this->banner = $documento["banner"];
+                $this->redesSociales = $documento["redesSociales"];
+                $this->refIdUsuario = $documento["refIdUsuario"];
+                $respuesta["valido"] = true;
+                $respuesta["mensaje"] = "Obtenido con exito";
+                return $respuesta;
+        } catch (Exception $e) {
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = $e->getMessage();
+            return $respuesta;
         }
     }
 
@@ -116,12 +160,12 @@ class Empresa
 
     public function getIdUsuario()
     {
-        return explode("/", $this->refIdUsuario)[2];
+        return explode("/", $this->refIdUsuario)[1];
     }
 
     public function setIdUsuario($idUsuario)
     {
-        $this->refIdUsuario = "/Usuario/" . $idUsuario;
+        $this->refIdUsuario = "Usuario/" . $idUsuario;
     }
 
     /**
@@ -288,8 +332,8 @@ class Empresa
         return $this;
     }
 }
-$empresa = new Empresa();
-$empresa->setTodo("diunsa@gmail.com", "Diunsa HN", "Honduras", "Col. Satelite, salida a la lima", "img4", "95987526", "img7", " Facebook");
+//$empresa = new Empresa();
+//$empresa->setTodo("diunsa@gmail.com", "Diunsa HN", "Honduras", "Col. Satelite, salida a la lima", "img4", "95987526", "img7", " Facebook");
 //print_r($empresa->guardarEmpresa());
 //print_r($empresa->obtenerEmpresa("diunsa@gmail.com"));
 //print_r($empresa->getNombreEmpresa());
