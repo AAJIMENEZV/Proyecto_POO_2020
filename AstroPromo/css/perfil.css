@@ -96,6 +96,8 @@
     margin-bottom: 20px;
     width: 100px !important;
     height: 85px;
+    /*z-index: -1 !important;*/
+    position: relative;
 }
 
 .card{

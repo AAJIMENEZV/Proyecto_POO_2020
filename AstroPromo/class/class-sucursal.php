@@ -6,8 +6,9 @@ class Sucursal
     private $idSucursal;
     private $codigoSucursal;
     private $direccionSucursal;
-    private $logintud;
+    private $longitud;
     private $latitud;
+    private $fotoSucursal;
     private $refIdEmpresa;
 
     public function __construct()
@@ -18,14 +19,16 @@ class Sucursal
     public function setTodo(
         $codigoSucursal,
         $direccionSucursal,
-        $logintud,
+        $longitud,
         $latitud,
+        $fotoSucursal,
         $idEmpresa
     ) {
         $this->codigoSucursal = $codigoSucursal;
         $this->direccionSucursal = $direccionSucursal;
-        $this->logintud = $logintud;
+        $this->longitud = $longitud;
         $this->latitud = $latitud;
+        $this->fotoSucursal = $fotoSucursal;
         $this->refIdEmpresa = "Empresa/" . $idEmpresa;
     }
 
@@ -35,8 +38,9 @@ class Sucursal
             $this->idSucursal = $this->fs->newDocument([
                 'codigoSucursal' => $this->codigoSucursal,
                 'direccionSucursal' => $this->direccionSucursal,
-                'logintud' => $this->logintud,
+                'longitud' => $this->longitud,
                 'latitud' => $this->latitud,
+                'fotoSucursal' => $this->fotoSucursal,
                 'refIdEmpresa' => $this->refIdEmpresa
             ]);
             return '{"codigoResultado":"1","mensaje":"Guardado con exito"}';
@@ -49,18 +53,28 @@ class Sucursal
     public function obtenerSucursal($idSucursal)
     {
         try {
-            $query = $this->fs->getWhere("idSucursal",$idSucursal);
+            $query = $this->fs->getWhere("idSucursal", $idSucursal);
             if (!empty($query)) {
                 $documento = $query[0];
                 $this->idSucursal = $documento["id"];
                 $this->codigoSucursal = $documento["codigoSucursal"];
                 $this->direccionSucursal = $documento["direccionSucursal"];
-                $this->logintud = $documento["logintud"];
+                $this->longitud = $documento["longitud"];
                 $this->latitud = $documento["latitud"];
+                $this->fotoSucursal = $documento["fotoSucursal"];
                 return '{"codigoResultado":"1","mensaje":"Obtenido con exito"}';
             } else {
                 return '{"codigoResultado":"0","mensaje":"No encontrado"}';
             }
+        } catch (Exception $e) {
+            return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
+        }
+    }
+    public function obtenerSucursalEmpresa($idEmpresa)
+    {
+        try {
+            $query = $this->fs->getWhere("refIdEmpresa", "Empresa/" . $idEmpresa);
+            return $query;
         } catch (Exception $e) {
             return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
         }
@@ -72,8 +86,9 @@ class Sucursal
             $this->fs->updateDocument($this->idSucursal, [
                 ['path' => 'codigoSucursal', 'value' => $this->codigoSucursal],
                 ['path' => 'direccionSucursal', 'value' => $this->direccionSucursal],
-                ['path' => 'logintud', 'value' => $this->logintud],
-                ['path' => 'latitud', 'value' => $this->latitud]
+                ['path' => 'longitud', 'value' => $this->longitud],
+                ['path' => 'latitud', 'value' => $this->latitud],
+                ['path' => 'fotoSucursal', 'value' => $this->fotoSucursal]
             ]);
             return '{"codigoResultado":"1","mensaje":"Actualizado con exito"}';
         } catch (Exception $e) {
@@ -93,7 +108,7 @@ class Sucursal
 
     public function getIdEmpresa()
     {
-        return explode("/", $this->refIdEmpresa)[2];
+        return explode("/", $this->refIdEmpresa)[1];
     }
 
     public function setIdEmpresa($idEmpresa)
@@ -143,21 +158,21 @@ class Sucursal
     }
 
     /**
-     * Get the value of logintud
+     * Get the value of longitud
      */
-    public function getLogintud()
+    public function getLongitud()
     {
-        return $this->logintud;
+        return $this->longitud;
     }
 
     /**
-     * Set the value of logintud
+     * Set the value of longitud
      *
      * @return  self
      */
-    public function setLogintud($logintud)
+    public function setLongitud($longitud)
     {
-        $this->logintud = $logintud;
+        $this->longitud = $longitud;
 
         return $this;
     }
@@ -198,6 +213,26 @@ class Sucursal
     public function setCodigoSucursal($codigoSucursal)
     {
         $this->codigoSucursal = $codigoSucursal;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fotoSucursal
+     */
+    public function getFotoSucursal()
+    {
+        return $this->fotoSucursal;
+    }
+
+    /**
+     * Set the value of fotoSucursal
+     *
+     * @return  self
+     */
+    public function setFotoSucursal($fotoSucursal)
+    {
+        $this->fotoSucursal = $fotoSucursal;
 
         return $this;
     }

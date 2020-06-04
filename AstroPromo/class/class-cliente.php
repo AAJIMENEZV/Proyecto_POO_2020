@@ -69,36 +69,44 @@ class Cliente
         }
     }
 
-   public function empresasSeguidas(){
-    $seguidor = new Seguidor();
-    try {
-        $query = $seguidor->obtenerSeguidorCliente($this->idCliente);//este me devuelve un arreglo de los documentos con el id del cliente
-        $empresas = array();
-        if (!empty($query)) {
-            foreach ($query as &$documento) {
-                $empresa = new Empresa();
-                $empresa->setIdEmpresa(explode("/", $documento['refIdEmpresa'])[1]);
-                $respuesta = $empresa->obtenerEmpresaPorId();
-                if($respuesta['valido'])
-                {
-                    $empresas[]= $empresa;
-                }  
+    public function empresasSeguidas()
+    {
+        $seguidor = new Seguidor();
+        try {
+            $query = $seguidor->obtenerSeguidorCliente($this->idCliente); //este me devuelve un arreglo de los documentos con el id del cliente
+            $empresas = array();
+            if (!empty($query)) {
+                foreach ($query as &$documento) {
+                    $empresa = new Empresa();
+                    $empresa->setIdEmpresa(explode("/", $documento['refIdEmpresa'])[1]);
+                    $respuesta = $empresa->obtenerEmpresaPorId();
+                    if ($respuesta['valido']) {
+                        $empresas[] = $empresa;
+                    }
+                }
+                $respuesta["valido"] = true;
+                $respuesta["empresas"] = $empresas;
+                return $respuesta;
+            } else {
+                $respuesta["valido"] = false;
+                $respuesta["mensaje"] = "Empresa no encontrada";
+                return $respuesta;
             }
-            $respuesta["valido"] = true;
-            $respuesta["empresas"]=$empresas;
-            return $respuesta;
-        } else {
+        } catch (Exception $e) {
             $respuesta["valido"] = false;
-            $respuesta["mensaje"] = "Empresa no encontrada";
+            $respuesta["mensaje"] = $e->getMessage();
             return $respuesta;
         }
-
-    }catch(Exception $e){
-
     }
-   }
 
-    
+    public function obtenerTodosClientes(){
+        try {
+            $query = $this->fs->obtenerTodosDocumentos();
+            return $query;
+        } catch (Exception $e) {
+            return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
+        }
+    }
 
 
     public function obtenerCliente($idUsuario)
@@ -164,7 +172,7 @@ class Cliente
 
     public function getIdUsuario()
     {
-        return explode("/", $this->refIdUsuario)[2];
+        return explode("/", $this->refIdUsuario)[1];
     }
 
     public function setIdUsuario($idUsuario)

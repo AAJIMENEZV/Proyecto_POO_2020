@@ -80,6 +80,27 @@ class Usuario
         }
     }
 
+    public function obtenerUsuarioPorId()
+    {
+        try {
+            $documento = $this->fs->getDocument($this->idUsuario);
+            $this->idUsuario = $documento["id"];
+            $this->correo = $documento["correo"];
+            $this->cliente = $documento["cliente"];
+            $this->empresa = $documento["empresa"];
+            $this->superUsuario = $documento["superUsuario"];
+            $this->contrasena = $documento["contrasena"];
+            $this->token = $documento["token"];
+            $respuesta["valido"] = true;
+            $respuesta["mensaje"] = "Obtenido con exito";
+            return $respuesta;
+        } catch (Exception $e) {
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = $e->getMessage();
+            return $respuesta;
+        }
+    }
+
     public function actualizarUsuario()
     {
         //$hash = password_hash($this->contrasena,  self::HASH, ['cost' => self::COST]);
@@ -142,7 +163,6 @@ class Usuario
         setcookie('correo', "", time() - 3600, "/");
         setcookie('token', "", time() - 3600, "/");
         header("Location: ../index.html");
-        //echo '{"mensaje" : "Cerrar Sesion"}';
     }
 
     public function verificarAutenticacion()

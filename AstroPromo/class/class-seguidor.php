@@ -39,6 +39,19 @@ class Seguidor
                 }
         }
 
+        public function obtenerSeguidorPorIdClienteIdEmpresa()
+        {
+                $respuesta = $this->fs->getWhereDoble("refIdCliente", $this->refIdCliente, "refIdEmpresa", $this->refIdEmpresa);
+                if (sizeof($respuesta) !=0) {
+                        $this->idSeguidor = $respuesta[0]["id"];
+                        $this->fechaSeguidor = $respuesta[0]["fechaSeguidor"];
+                        return true;
+                } else {
+                        return false;
+                }
+        }
+
+
         public function obtenerSeguidor($idSeguidor)
         {
                 try {
@@ -60,7 +73,7 @@ class Seguidor
         public function obtenerSeguidorCliente($idCliente)
         {
                 try {
-                        $query = $this->fs->getWhere("refIdCliente", "Cliente/" .$idCliente);
+                        $query = $this->fs->getWhere("refIdCliente", "Cliente/" . $idCliente);
                         return $query;
                 } catch (Exception $e) {
                         return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
@@ -90,10 +103,10 @@ class Seguidor
                         return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
                 }
         }
-        
+
         public function getIdEmpresa()
         {
-                return explode("/", $this->refIdEmpresa)[2];
+                return explode("/", $this->refIdEmpresa)[1];
         }
 
         public function setIdEmpresa($idEmpresa)
@@ -103,7 +116,7 @@ class Seguidor
 
         public function getIdCliente()
         {
-                return explode("/", $this->refIdCliente)[2];
+                return explode("/", $this->refIdCliente)[1];
         }
 
         public function setIdCliente($idCliente)

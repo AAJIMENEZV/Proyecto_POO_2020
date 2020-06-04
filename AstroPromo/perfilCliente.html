@@ -30,7 +30,7 @@
           <span class="button-bar"></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="index.html">Cerrar Sesion</a>
+          <a class="dropdown-item" href="api/usuario.php?accion=logout">Cerrar Sesion</a>
         </div>
       </div>
       <div class="navbar-translate">
@@ -62,7 +62,8 @@
                 <img alt="" id="perfil-fotoPerfil">
               </div>
               <h3 class="title" id="perfil-nombre"></h3>
-              <p class="category" ><span id="perfil-genero"></span> | <span id="perfil-fechaNacimiento"></span> | <span id="perfil-numeroTelefono"></span></p>
+              <p class="category"><span id="perfil-genero"></span> | <span id="perfil-fechaNacimiento"></span> | <span
+                  id="perfil-numeroTelefono"></span></p>
               <p class="category" id="perfil-correo"></p>
               <a href="#button" class="btn  btn-round btn-redes " rel="tooltip" title="Twitter">
                 <i class="fab fa-twitter fa-2x"></i>
@@ -94,44 +95,20 @@
             <div class="tab-content">
               <div class="tab-pane active" id="home" role="tabpanel">
                 <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-12 col-sm-6">
-                      <div class="card">
-                        <img class="card-img-top" src="img/ps4.jpg" alt="Card image cap">
-                        <div class="card-block">
-                          <img class="img-profile-folow" src="img/radio.png" alt="">
-                          <h4>PS4 Liquidacion</h4>
-                          <p class="card-text">En esta cuarentena y sin hacer nada, pide tu PS4 para el aburrimiento</p>
-                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
-                            data-target="#verPromocion">Ver</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                      <div class="card">
-                        <img class="card-img-top" src="img/iphonex.jpg" alt="Card image cap">
-                        <div class="card-block">
-                          <img class="img-profile-folow" src="img/tigo.png" alt="">
-                          <h4>IPhone X</h4>
-                          <p class="card-text">Plan Postpago con Iphone incluido</p>
-                          <a href="#" class="btn btn-primary btn-round btn-lg">Ver</a>
-                        </div>
-                      </div>
-                    </div>
-
-
+                  <div class="row" id="tarjetaPromociones">
+                
                   </div>
                 </div>
               </div>
               <div class="tab-pane Follow" id="actualizar" role="tabpanel">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" id="form-actualizarCliente" novalidate>
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="nombreCliente" placeholder="Ingrese su Nombre"
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su Nombre"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -146,7 +123,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="apellidoCLiente" placeholder="Ingrese su Apellido"
+                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su Apellido"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -159,9 +136,9 @@
                     <div class="col-md-4 mb-3">
                       <div class="input-group">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-envelope"></i></span>
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-venus-mars"></i></span>
                         </div>
-                        <input type="email" class="form-control" id="correoCLiente" placeholder="Ingrese su correo"
+                        <input type="text" class="form-control" id="genero" name="genero" placeholder="Ingrese su genero"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -179,7 +156,7 @@
                           <span class="input-group-text" id="inputGroupPrepend"><i
                               class="far fa-calendar-alt"></i></span>
                         </div>
-                        <input type="date" class="form-control" id="fechaNacimientoCLiente"
+                        <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento"
                           placeholder="Fecha Nacimiento" aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -192,9 +169,9 @@
                     <div class="col-md-4 mb-3">
                       <div class="input-group">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-venus-mars"></i></span>
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-mobile-alt"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="generoCLiente" placeholder="Genero"
+                        <input type="text" class="form-control" id="numeroTarjeta" name="numeroTarjeta" placeholder="numero Tarjeta"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -207,9 +184,9 @@
                     <div class="col-md-4 mb-3">
                       <div class="input-group">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-image"></i></span>
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-mobile-alt"></i></span>
                         </div>
-                        <input type="file" class="form-control" id="fotoPerfilCLiente" placeholder="Foto de Perfil"
+                        <input type="text" class="form-control" name="numerotelefono" id="numerotelefono" placeholder="Ingrese su #Telefono"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -221,12 +198,13 @@
                     </div>
                   </div>
                   <div class="form-row">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                       <div class="input-group">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-mobile-alt"></i></span>
+                          <label for="fotoPerfil" style="margin-right: 7px;">Perfil: </label>
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-image"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="telefonoCLiente" placeholder="Ingrese su #Telefono"
+                        <input type="file" class="form-control" id="fotoPerfil" name="fotoPerfil" placeholder="Foto de Perfil"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -236,28 +214,14 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                       <div class="input-group">
+                        <label for="fotoPortada" style="margin-right: 7px;">Portada: </label>
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-unlock"></i></span>
+                          <span class="input-group-text" id="inputGroupPrepend" ><i class="fas fa-image"></i></span>
                         </div>
-                        <input type="password" class="form-control" id="contraseñaCLiente"
-                          placeholder="Ingrese su contraseña" aria-describedby="inputGroupPrepend" required>
-                        <div class="valid-feedback">
-                          Correcto.
-                        </div>
-                        <div class="invalid-feedback">
-                          Campo Obligatorio.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-lock"></i></span>
-                        </div>
-                        <input type="password" class="form-control" id="contraseñaCLiente"
-                          placeholder="Confirme su contraseña" aria-describedby="inputGroupPrepend" required>
+                        <input type="file" class="form-control" id="fotoPortada" name="fotoPortada" placeholder="Foto de Perfil"
+                          aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
                         </div>
@@ -268,8 +232,8 @@
                     </div>
                   </div>
                   <div style="text-align: center;">
-                    <button class="btn btn-outline-success btn-redes" id="btn-registrate"
-                      type="submit">Actualizar</button>
+                    <button class="btn btn-outline-success btn-redes" id="btn-actualizarCliente"
+                      type="button">Actualizar</button>
                   </div>
                 </form>
               </div>
@@ -277,28 +241,7 @@
               <div class="tab-pane " id="empresas" role="tabpanel">
                 <div class="container-fluid">
                   <div class="row" id="tarjetasEmpresas">
-                    <div class="col-12 col-sm-6">
-                      <div class="card card-empresa">
-                        <img class="card-img-top" src="img/nike.jpg" alt="Card image cap">
-                        <div class="card-block">
-                          <img class="img-profile-folow" src="img/nike2.jpg" alt="">
-                          <h4>NIKE</h4>
-                          <p class="card-text">Las Mejores promociones aqui en esta tienda</p>
-                          <a href="perfilEmpresaCliente.html" class="btn btn-primary btn-round btn-lg">Ver</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                      <div class="card">
-                        <img class="card-img-top" src="img/jest1.jpg" alt="Card image cap">
-                        <div class="card-block">
-                          <img class="img-profile-folow" src="img/jet2.png" alt="">
-                          <h4>Jetstereo</h4>
-                          <p class="card-text">Cuando quieras lo mejor</p>
-                          <a href="#" class="btn btn-primary btn-round btn-lg">Ver</a>
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -338,30 +281,6 @@
       </div>
     </div>
 
-  </div>
-
-
-  <div class="modal fade" id="verPromocion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-center" role="document">
-      <div class="modal-content">
-        <div class="card carta-producto " style="padding: 10px;">
-          <img class="card-img-top" src="img/ps4.jpg" alt="Camisa Barsa">
-          <div class="card-block">
-            <img class="img-profile-folow" src="img/radio.png" alt="">
-            <h4>PS4 Liquidacion</h4>
-            <p class="card-text">En esta cuarente, no te aburras y compra tu PS$</p>
-            <p class="category">Precio Normal: 10000 | Oferta: 30% </p>
-            <p class="category">Precio Oferta: 7000 | Fecha Limite: 24/04/2020 </p>
-            <p class="category">Sucursal Multiplaza</p>
-            <div style="text-align: center;">
-              <button type="submit" class="btn btn-primary btn-round btn-lg" id="btn-comprar">Comprar</button>
-              <button type="submit" class="btn btn-primary btn-round btn-lg" id="btn-verEmpresa">Ver Empresa</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
 

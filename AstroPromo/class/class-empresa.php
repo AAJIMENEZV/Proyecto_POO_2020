@@ -1,5 +1,8 @@
 <?php
 require_once 'Firestore.php';
+require_once 'class-producto.php';
+require_once 'class-sucursal.php';
+require_once 'class-promocion.php';
 class Empresa
 {
     private $idEmpresa;
@@ -17,17 +20,18 @@ class Empresa
     {
         $this->fs = new Firestore('Empresa');
     }
-    public function comoArreglo(){
-        $arreglo=array();
-        $arreglo["idEmpresa"]=$this->idEmpresa;
-        $arreglo["nombreEmpresa"]=$this->nombreEmpresa;
-        $arreglo["pais"]=$this->pais;
-        $arreglo["direccion"]=$this->direccion;
-        $arreglo["logotipo"]=$this->logotipo;
-        $arreglo["telefono"]=$this->telefono;
-        $arreglo["banner"]=$this->banner;
-        $arreglo["redesSociales"]=$this->redesSociales;
-        $arreglo["refIdUsuario"]=$this->refIdUsuario;
+    public function comoArreglo()
+    {
+        $arreglo = array();
+        $arreglo["idEmpresa"] = $this->idEmpresa;
+        $arreglo["nombreEmpresa"] = $this->nombreEmpresa;
+        $arreglo["pais"] = $this->pais;
+        $arreglo["direccion"] = $this->direccion;
+        $arreglo["logotipo"] = $this->logotipo;
+        $arreglo["telefono"] = $this->telefono;
+        $arreglo["banner"] = $this->banner;
+        $arreglo["redesSociales"] = $this->redesSociales;
+        $arreglo["refIdUsuario"] = $this->refIdUsuario;
         return $arreglo;
     }
 
@@ -63,7 +67,7 @@ class Empresa
                     'telefono' => $this->telefono,
                     'banner' => $this->banner,
                     'redesSociales' => $this->redesSociales,
-                    'refIdUsuario'=>$this->refIdUsuario
+                    'refIdUsuario' => $this->refIdUsuario
                 ]);
                 return '{"codigoResultado":"1","mensaje":"Guardado con exito"}';
             } else {
@@ -105,24 +109,109 @@ class Empresa
             return $respuesta;
         }
     }
-
+    public function obtenerTodasEmpresas()
+    {
+        try {
+            $query = $this->fs->obtenerTodosDocumentos();
+            return $query;
+        } catch (Exception $e) {
+            return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
+        }
+    }
 
     public function obtenerEmpresaPorId()
     {
         try {
             $documento = $this->fs->getDocument($this->idEmpresa);
-                $this->idEmpresa = $documento["id"];
-                $this->nombreEmpresa = $documento["nombreEmpresa"];
-                $this->pais = $documento["pais"];
-                $this->direccion = $documento["direccion"];
-                $this->logotipo = $documento["logotipo"];
-                $this->telefono = $documento["telefono"];
-                $this->banner = $documento["banner"];
-                $this->redesSociales = $documento["redesSociales"];
-                $this->refIdUsuario = $documento["refIdUsuario"];
+            $this->idEmpresa = $documento["id"];
+            $this->nombreEmpresa = $documento["nombreEmpresa"];
+            $this->pais = $documento["pais"];
+            $this->direccion = $documento["direccion"];
+            $this->logotipo = $documento["logotipo"];
+            $this->telefono = $documento["telefono"];
+            $this->banner = $documento["banner"];
+            $this->redesSociales = $documento["redesSociales"];
+            $this->refIdUsuario = $documento["refIdUsuario"];
+            $respuesta["valido"] = true;
+            $respuesta["mensaje"] = "Obtenido con exito";
+            return $respuesta;
+        } catch (Exception $e) {
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = $e->getMessage();
+            return $respuesta;
+        }
+    }
+
+    public function obtenerProductos()
+    {
+        $producto = new Producto();
+        try {
+            $query = $producto->obtenerProductoEmpresa($this->idEmpresa);
+            $productos = array();
+            if (!empty($query)) {
+                foreach ($query as &$documento) {
+                    $documento["logotipo"] = $this->logotipo;
+                    $productos[] = $documento;
+                }
                 $respuesta["valido"] = true;
-                $respuesta["mensaje"] = "Obtenido con exito";
+                $respuesta["productos"] = $productos;
                 return $respuesta;
+            } else {
+                $respuesta["valido"] = false;
+                $respuesta["mensaje"] = "Producto no encontrado";
+                return $respuesta;
+            }
+        } catch (Exception $e) {
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = $e->getMessage();
+            return $respuesta;
+        }
+    }
+
+    public function obtenerSucursales()
+    {
+        $sucursal = new Sucursal();
+        try {
+            $query = $sucursal->obtenerSucursalEmpresa($this->idEmpresa);
+            $sucursales = array();
+            if (!empty($query)) {
+                foreach ($query as &$documento) {
+                    $sucursales[] = $documento;
+                }
+                $respuesta["valido"] = true;
+                $respuesta["sucursales"] = $sucursales;
+                return $respuesta;
+            } else {
+                $respuesta["valido"] = false;
+                $respuesta["mensaje"] = "sucursal no encontrado";
+                return $respuesta;
+            }
+        } catch (Exception $e) {
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = $e->getMessage();
+            return $respuesta;
+        }
+    }
+
+    public function obtenerPromociones()
+    {
+        $promocion = new Promocion();
+        try {
+            $query = $promocion->obtenerPromocionEmpresa($this->idEmpresa);
+            $promociones = array();
+            if (!empty($query)) {
+                foreach ($query as &$documento) {
+                    $documento["logotipo"] = $this->logotipo;
+                    $promociones[] = $documento;
+                }
+                $respuesta["valido"] = true;
+                $respuesta["promociones"] = $promociones;
+                return $respuesta;
+            } else {
+                $respuesta["valido"] = false;
+                $respuesta["mensaje"] = "Promoción no encontrada";
+                return $respuesta;
+            }
         } catch (Exception $e) {
             $respuesta["valido"] = false;
             $respuesta["mensaje"] = $e->getMessage();
@@ -335,5 +424,5 @@ class Empresa
 //$empresa = new Empresa();
 //$empresa->setTodo("diunsa@gmail.com", "Diunsa HN", "Honduras", "Col. Satelite, salida a la lima", "img4", "95987526", "img7", " Facebook");
 //print_r($empresa->guardarEmpresa());
-//print_r($empresa->obtenerEmpresa("diunsa@gmail.com"));
+//print_r($empresa->obtenerPromociones("77dc2d7750a840949dbd"));
 //print_r($empresa->getNombreEmpresa());

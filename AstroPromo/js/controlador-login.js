@@ -50,11 +50,11 @@ $("#btn-login").click(function () {
     data: parametros,
     dataType: 'json',
     success: (res) => {
-
+      console.log(res);
       if (res.valido) {
 
         if (res.superUsuario) {
-          window.location.href = 'superUsuario.html';
+          window.location.href = 'perfilSuperUsuario.html';
         }
         if (res.empresa) {
           window.location.href = 'perfilEmpresa.html';

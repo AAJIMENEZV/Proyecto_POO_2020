@@ -19,9 +19,35 @@ class Firestore
         $this->name = $collection;
     }
 
+    public function obtenerTodosDocumentos()
+    {
+        $resultado = [];
+        $coleccionRef = $this->db->collection($this->name);
+        $documents = $coleccionRef->documents();
+        foreach ($documents as $document) {
+            if ($document->exists()) {
+                $arreglo = $document->data();
+                $arreglo["id"] = $document->id();
+                array_push($resultado, $arreglo);
+            } else {
+                printf('Document %s does not exist!');
+            }
+        }
+        return $resultado;
+    }
 
+    public function getWhereDoble(string $field1, $value1,string $field2, $value2)
+    {
 
-
+        $resultado = [];
+        $snapshot = $this->db->collection($this->name)->where($field1, '==', $value1)->where($field2, '==', $value2)->documents();
+        foreach ($snapshot as $document) {
+            $arreglo = $document->data();
+            $arreglo["id"] = $document->id();
+            array_push($resultado, $arreglo);
+        }
+        return $resultado;
+    }
     public function getWhere(string $field, $value)
     {
 
@@ -29,7 +55,7 @@ class Firestore
         $snapshot = $this->db->collection($this->name)->where($field, '==', $value)->documents();
         foreach ($snapshot as $document) {
             $arreglo = $document->data();
-            $arreglo["id"]=$document->id();
+            $arreglo["id"] = $document->id();
             array_push($resultado, $arreglo);
         }
         return $resultado;
@@ -67,15 +93,15 @@ class Firestore
     {
         if (empty($id)) throw new Exception('Falta ID');
         if ($this->db->collection($this->name)->document($id)->snapshot()->exists()) {
-            $documento= $this->db->collection($this->name)->document($id)->snapshot()->data();
-            $documento["id"]=$id;
+            $documento = $this->db->collection($this->name)->document($id)->snapshot()->data();
+            $documento["id"] = $id;
             return $documento;
         } else {
             throw new Exception('No existe');
         }
     }
-   
-    
+
+
 
     public function newCollection(string $name, string $doc_name, array $data = [])
     {

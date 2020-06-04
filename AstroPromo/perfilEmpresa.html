@@ -12,11 +12,17 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
   <!-- CSS Files -->
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="css/now-ui-kit.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/perfil.css">
   <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/Chart.css">
+  <script src="js/Chart.bundle.min.js"></script>
+  <script src="js/Chart.min.js"></script>
 </head>
 
 <body class="profile-page">
@@ -30,7 +36,7 @@
           <span class="button-bar"></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="index.html">Cerrar Sesion</a>
+          <a class="dropdown-item" href="api/usuario.php?accion=logout">Cerrar Sesion</a>
         </div>
       </div>
       <div class="navbar-translate">
@@ -114,31 +120,7 @@
 
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 col-sm-6">
-                      <div class="card">
-                        <img class="card-img-top" src="img/camisa.png" alt="Card image cap">
-                        <div class="card-block">
-                          <img class="img-profile-folow" src="img/descuento2.png" alt="">
-                          <h4>Camisa Barsa</h4>
-                          <p class="card-text">¡Por tiempo limitado!</p>
-                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
-                            data-target="#verCamisa">Ver</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                      <div class="card">
-                        <img class="card-img-top" src="img/guantes.jpg" alt="Card image cap">
-                        <div class="card-block">
-                          <img class="img-profile-folow" src="img/2x1.jpg" alt="">
-                          <h4>Guantes Portero</h4>
-                          <p class="card-text">Practica tus dotes de portero con esta promoción.</p>
-                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
-                            data-target="#verGuantes">Ver</a>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="row" id="tarjetaPromociones">
 
 
                   </div>
@@ -146,15 +128,15 @@
                 </div>
               </div>
               <div class="tab-pane Follow" id="actualizar" role="tabpanel">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" id="form-actualizarEmpresa" novalidate >
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-building"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="nombreEmpresa" placeholder="Nombre Empresa"
-                          aria-describedby="inputGroupPrepend" required>
+                        <input type="text" class="form-control" name="nombreEmpresa" id="nombreEmpresa"
+                          placeholder="Nombre Empresa" aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
                         </div>
@@ -166,10 +148,9 @@
                     <div class="col-md-4 mb-3">
                       <div class="input-group">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i
-                              class="fas fa-globe-americas"></i></span>
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-globe-americas"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="paisEmpresa" placeholder="Pais"
+                        <input type="text" class="form-control" name="pais" id="pais" placeholder="Pais"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -184,7 +165,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-route"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="direccionEmpresa" placeholder="Direccion"
+                        <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Direccion"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -199,9 +180,42 @@
                     <div class="col-md-4 mb-3">
                       <div class="input-group">
                         <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-phone-square"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="redesSociales" id="redesSociales"
+                          placeholder="redesSociales" aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-phone-square"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono"
+                          aria-describedby="inputGroupPrepend" required>
+                        <div class="valid-feedback">
+                          Correcto.
+                        </div>
+                        <div class="invalid-feedback">
+                          Campo Obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <div class="input-group">
+                        <label for="logotipo" style="color: white; margin-right: 5px;">Logotipo: </label>
+                        <div class="input-group-prepend">
                           <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-icons"></i></span>
                         </div>
-                        <input type="file" class="form-control" id="logotipoEmpresa" placeholder="Logotipo"
+                        <input type="file" class="form-control" name="logotipo" id="logotipo" placeholder="Logotipo"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -211,29 +225,13 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                       <div class="input-group">
+                        <label for="baner" style="color: white; margin-right: 5px;">Banner: </label>
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i
-                              class="fas fa-phone-square"></i></span>
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-icons"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="telefonoEmpresa" placeholder="Telefono"
-                          aria-describedby="inputGroupPrepend" required>
-                        <div class="valid-feedback">
-                          Correcto.
-                        </div>
-                        <div class="invalid-feedback">
-                          Campo Obligatorio.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i
-                              class="fas fa-envelope-open-text"></i></span>
-                        </div>
-                        <input type="email" class="form-control" id="correoEmpresa" placeholder="Correo"
+                        <input type="file" class="form-control" name="banner" id="banner" placeholder="Banner"
                           aria-describedby="inputGroupPrepend" required>
                         <div class="valid-feedback">
                           Correcto.
@@ -244,41 +242,10 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-row" style="padding-left: 150px;">
-                    <div class="col-md-4 mb-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-unlock"></i></span>
-                        </div>
-                        <input type="password" class="form-control" id="contrasenaEmpresa" placeholder="Contraseña"
-                          aria-describedby="inputGroupPrepend" required>
-                        <div class="valid-feedback">
-                          Correcto.
-                        </div>
-                        <div class="invalid-feedback">
-                          Campo Obligatorio.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-lock"></i></span>
-                        </div>
-                        <input type="password" class="form-control" id="contrasenaEmpresa"
-                          placeholder="Confirme Contraseña" aria-describedby="inputGroupPrepend" required>
-                        <div class="valid-feedback">
-                          Correcto.
-                        </div>
-                        <div class="invalid-feedback">
-                          Campo Obligatorio.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
+                  
                   <div style="text-align: center;">
-                    <button class="btn btn-outline-success" id="btn-registrate"
-                      onclick="guardarEmpresa();">Actualizar</button>
+                    <button class="btn btn-outline-success" id="btn-actualizarEmpresa" type="button">Actualizar</button>
                   </div>
                 </form>
               </div>
@@ -292,33 +259,7 @@
 
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 col-sm-6">
-                      <div class="card" style="padding: 10px;">
-                        <img class="card-img-top" src="img/pelotaa.jpg" alt="Pelota Barsa">
-                        <div class="card-block">
-                          <img class="img-profile-folow" src="img/nike2.jpg" alt="">
-                          <h4>Balón Fútbol</h4>
-                          <p class="card-text">Los balones de mejor calidad.</p>
-                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
-                            data-target="#verBalon">Ver</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                      <div class="card">
-                        <img class="card-img-top" src="img/tenis.jpg" alt="Tenis Sport">
-                        <div class="card-block">
-                          <img class="img-profile-folow" src="img/nike2.jpg" alt="">
-                          <h4>Tenis Sport</h4>
-                          <p class="card-text">El ejercicio nunca fué mas fácil.</p>
-                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
-                            data-target="#verTenis">Ver</a>
-                        </div>
-                      </div>
-                    </div>
-
-
+                  <div class="row" id="tarjetasProductos">
 
                   </div>
                 </div>
@@ -335,19 +276,7 @@
 
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 col-sm-6">
-                      <div class="card " style="padding: 10px;">
-                        <img class="card-img-top" src="img/pelotaa.jpg" alt="Pelota Barsa">
-                        <div class="card-block">
-                          <img class="img-profile-folow" src="img/nike2.jpg" alt="">
-                          <h4>Balón Fútbol</h4>
-                          <p class="card-text">Los balones de mejor calidad.</p>
-                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
-                            data-target="#verBalon">Ver</a>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="row" id="tarjetaSucursales">
                     <div class="col-12 col-sm-6">
                       <div class="card">
                         <img class="card-img-top" src="img/tenis.jpg" alt="Tenis Sport">
@@ -355,7 +284,7 @@
                           <img class="img-profile-folow" src="img/nike2.jpg" alt="">
                           <h4>Tenis Sport</h4>
                           <p class="card-text">El ejercicio nunca fué mas fácil.</p>
-                          <a href="#" class="btn btn-primary btn-round btn-lg" data-toggle="modal"
+                          <a href="#"  class="btn btn-primary btn-round btn-lg" data-toggle="modal"
                             data-target="#verTenis">Ver</a>
                         </div>
                       </div>
@@ -370,14 +299,7 @@
 
               <div class="tab-pane " id="estadistica" role="tabpanel">
                 <div class="container-fluid">
-                  <div class="card carta-empresa " style="padding: 10px;">
-                    <img class="card-img-top" src="img/estadis.jfif" alt="Estadistica">
-                    <div class="card-block">
-                      <img class="img-profile-folow" src="img/logoesta.jfif" alt="">
-                      <h4>Estadisticas</h4>
-                      <p class="card-text">Aqui se muestran las estadisticas en tiempo real.</p>
-                    </div>
-                  </div>
+                  <canvas id="graficaSeguidor" width="400" height="300"></canvas>
                 </div>
               </div>
             </div>
@@ -448,9 +370,9 @@
           <div class="modal-body">
             <div class="card carta-empresa " style="padding: 10px;">
 
-              <form class="needs-validation" novalidate>
+              <form class="needs-validation" novalidate id="form-promocion">
                 <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="nombrePromocion"
+                  <input type="text" class="form-control formulariomodal" name="nombrePromocion" id="nombrePromocion"
                     placeholder="Nombre Promocion" required>
                   <div class="valid-feedback">
                     Correcto.
@@ -460,8 +382,8 @@
                   </div>
                 </div>
                 <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="descripcionnPromocion"
-                    placeholder="Descripcion" required>
+                  <input type="text" class="form-control formulariomodal" name="descripcionPromocion"
+                    id="descripcionPromocion" placeholder="Descripcion" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -470,11 +392,20 @@
                   </div>
                 </div>
                 <div class="form-row col-12">
-                  <select class="custom-select form-control formulariomodal " id="producto" required>
+                  <label for="imagenPromocion">Imagen de la Promoción</label>
+                  <input type="file" class="form-control formulariomodal" name="imagenPromocion" id="imagenPromocion"
+                    placeholder="imagenPromocion" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <select class="custom-select form-control formulariomodal" name="selectProducto" id="selectProducto"
+                    required>
                     <option selected>Producto...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
                   </select>
                   <div class="valid-feedback">
                     Correcto.
@@ -485,8 +416,8 @@
                 </div>
                 <div class="form-row" style="padding-left: 15px; padding-right: 15px;">
                   <div class="col-md-4">
-                    <input type="text" class="form-control formulariomodal" id="precioNormal"
-                      placeholder="Precio Normal" required>
+                    <input type="text" class="form-control formulariomodal" name="precioNormal" id="precioNormal"
+                      placeholder="Precio Normal" disabled required>
                     <div class="valid-feedback">
                       Correcto.
                     </div>
@@ -495,8 +426,8 @@
                     </div>
                   </div>
                   <div class="col-md-4 ">
-                    <input type="text" class="form-control formulariomodal" id="descuento" placeholder="Descuento"
-                      required>
+                    <input type="number" min=0 max=100 class="form-control formulariomodal" name="descuento"
+                      id="descuento" placeholder="Descuento" required>
                     <div class="valid-feedback">
                       Correcto.
                     </div>
@@ -505,8 +436,8 @@
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <input type="text" class="form-control formulariomodal" id="precioOferta"
-                      placeholder="Precio Oferta" required>
+                    <input type="text" class="form-control formulariomodal" name="precioOferta" id="precioOferta"
+                      placeholder="Precio Oferta" disabled required>
                     <div class="valid-feedback">
                       Correcto.
                     </div>
@@ -518,7 +449,8 @@
                 <div class="form-row" style="padding-left: 15px; padding-right: 15px;">
                   <div class="col-md-6 form-group">
                     <label for="fechaInicio"> Fecha Inicio</label>
-                    <input type="date" class="form-control formulariomodal" id="fechaInicio" required>
+                    <input type="date" class="form-control formulariomodal" name="fechaInicio" id="fechaInicio"
+                      required>
                     <div class="valid-feedback">
                       Correcto.
                     </div>
@@ -528,7 +460,8 @@
                   </div>
                   <div class="col-md-6">
                     <label for="fechaFinal"> Fecha Final</label>
-                    <input type="date" class="form-control formulariomodal" id="fechaFinal" required>
+                    <input type="date" class="form-control formulariomodal" name="fechaVencimiento"
+                      id="fechaVencimiento" required>
                     <div class="valid-feedback">
                       Correcto.
                     </div>
@@ -538,11 +471,9 @@
                   </div>
                 </div>
                 <div class="form-row col-12">
-                  <select class="custom-select form-control formulariomodal " id="sucursal" required>
+                  <select class="custom-select form-control formulariomodal" name="selectSucursal" id="selectSucursal"
+                    required>
                     <option selected>Sucursal...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
                   </select>
                   <div class="valid-feedback">
                     Correcto.
@@ -552,7 +483,8 @@
                   </div>
                 </div>
                 <div style="text-align: center;">
-                  <button type="submit" class="btn btn-primary btn-round btn-lg" id="btn-registrate">Agregar</button>
+                  <button type="button" class="btn btn-primary btn-round btn-lg"
+                    id="btn-registrarPromocion">Agregar</button>
                 </div>
               </form>
 
@@ -637,7 +569,7 @@
 
     <div class="modal fade" id="agregarSucursal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
       aria-hidden="true">
-      <div class="modal-dialog " role="document">
+      <div class="modal-dialog " role="document" style="height: 550px;">
 
         <div class="modal-content">
           <div class="modal-header">
@@ -647,32 +579,12 @@
             </button>
           </div>
           <div class="modal-body">
-            <div class="card carta-empresa " style="padding: 10px;">
+            <div class="card carta-empresa " style="padding: 10px; height: 600px !important;">
 
-              <form class="needs-validation" novalidate>
+              <form class="needs-validation" novalidate id="form-sucursal">
                 <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="numeroSucursal"
-                    placeholder="Numero Sucursal" required>
-                  <div class="valid-feedback">
-                    Correcto.
-                  </div>
-                  <div class="invalid-feedback">
-                    Campo Obligatorio.
-                  </div>
-                </div>
-                <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="latitudSucursal" placeholder="Latitud"
-                    required>
-                  <div class="valid-feedback">
-                    Correcto.
-                  </div>
-                  <div class="invalid-feedback">
-                    Campo Obligatorio.
-                  </div>
-                </div>
-                <div class="form-row col-12">
-                  <input type="text" class="form-control formulariomodal" id="longitudSucursal" placeholder="Longitud"
-                    required>
+                  <input type="text" class="form-control formulariomodal" name="codigoSucursal" id="codigoSucursal"
+                    placeholder="Codgio Sucursal" required>
                   <div class="valid-feedback">
                     Correcto.
                   </div>
@@ -682,7 +594,7 @@
                 </div>
                 <div class="form-row col-12">
                   <label for="fotoSucursal">Foto de la sucursal</label>
-                  <input type="file" class="form-control formulariomodal" id="fotoSucursal" placeholder="fotoProducto"
+                  <input type="file" class="form-control formulariomodal" name="foto-Sucursal" id="foto-Sucursal"
                     required>
                   <div class="valid-feedback">
                     Correcto.
@@ -691,8 +603,44 @@
                     Campo Obligatorio.
                   </div>
                 </div>
+                <div class="form-row col-12">
+                  <input type="text" class="form-control formulariomodal" name="direccionSucursal"
+                    id="direccionSucursal" placeholder="Dirección Sucursal" required>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <span>Agrega un solo marcador y luego arrastralo tu dirección</span>
+                <div id="mapa" style="height: 200px; margin-bottom: 10px;">
+
+                </div>
+                <div class="form-row col-12">
+                  <span>Latitud:</span><input type="text" class="form-control formulariomodal" name="latitud"
+                    id="latitud" placeholder="Latitud" required disabled>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+                <div class="form-row col-12">
+                  <span>Longitud:</span>
+                  <input type="text" class="form-control formulariomodal" name="longitud" id="longitud"
+                    placeholder="Longitud" required disabled>
+                  <div class="valid-feedback">
+                    Correcto.
+                  </div>
+                  <div class="invalid-feedback">
+                    Campo Obligatorio.
+                  </div>
+                </div>
+
                 <div style="text-align: center;">
-                  <button class="btn btn-outline-success" id="btn-registrate">Agregar</button>
+                  <button class="btn btn-outline-success" type="button" id="btn-registrarSucursal">Agregar</button>
                 </div>
               </form>
 
@@ -704,96 +652,11 @@
 
 
 
-    <!--CAMISA-->
-
-    <div class="modal fade" id="verCamisa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-center" role="document">
-        <div class="modal-content">
-          <div class="card carta-empres " style="padding: 10px;">
-            <img class="card-img-top" src="img/camisa2.jpg" alt="Camisa Barsa">
-            <div class="card-block">
-              <img class="img-profile-folow" src="img/descuento2.png" alt="">
-              <h4>Camisas Barcelona</h4>
-              <p class="card-text">Tenemos todas las camisas de Barcelona al 50% de descuento. Animate</p>
-              <p class="category">Precio Normal: 1000 | Oferta: 30% </p>
-              <p class="category">Precio Oferta: 700 | Fecha Limite: 24/04/2020 </p>
-              <p class="category">Sucursal Multiplaza</p>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <!--GUANTES-->
-
-
-      <div class="modal fade" id="verGuantes" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-center" role="document">
-          <div class="modal-content">
-            <div class="card carta-empres " style="padding: 10px;">
-              <img class="card-img-top" src="img/guante2.jpg" alt="Guante Portero">
-              <div class="card-block">
-                <img class="img-profile-folow" src="img/2x1.jpg" alt="">
-                <h4>Guantes Portero</h4>
-                <p class="card-text">Sin excepcion alguna, si llevas uno el otro es gratis. Mas resistentes y mayor
-                  comodidad.</p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <!--BALON-->
-      <div class="modal fade" id="verBalon" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-center" role="document">
-          <div class="modal-content">
-            <div class="card carta-empres " style="padding: 10px;">
-              <img class="card-img-top" src="img/balon2.jpg" alt="Pelota Barsa">
-              <div class="card-block">
-                <img class="img-profile-folow" src="img/nike2.jpg" alt="">
-                <h4>Balón Fútbol</h4>
-                <p class="card-text">Tenemos disponible balones de diferentes estilos al mismo precio. Ahora más
-                  resistentes.</p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <!--TENIS-->
-      <div class="modal fade" id="verTenis" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-center" role="document">
-          <div class="modal-content">
-            <div class="card">
-              <img class="card-img-top" src="img/tenis2.jpg" alt="Tenis Sport">
-              <div class="card-block">
-                <img class="img-profile-folow" src="img/nike2.jpg" alt="">
-                <h4>Tenis Sport</h4>
-                <p class="card-text">Con los nuevos y mejorados tenis Nike hacer ejercicio nunca fue más fácil.<br>
-                  Disponibles en todas nuestras tiendas.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-    </div>
-
-
 </body>
+
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
 <script src="js/popper.min.js"></script>
 <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="js/tether.min.js" type="text/javascript"></script>
@@ -804,6 +667,7 @@
 <script src="js/now-ui-kit.js" type="text/javascript"></script>
 <script src="js/analytics.js"></script>
 <script src="js/all.min.js"></script>
+
 <script src="js/controladorPerfilEmpresa.js"></script>
 
 </html>

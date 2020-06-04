@@ -10,6 +10,9 @@ class Producto
      private $refIdEmpresa;
      private $fs;
 
+
+     
+
      public function __construct()
      {
           $this->fs = new Firestore('Producto');
@@ -68,6 +71,16 @@ class Producto
           }
      }
 
+     public function obtenerProductoEmpresa($idEmpresa)
+    {
+        try {
+            $query = $this->fs->getWhere("refIdEmpresa", "Empresa/" . $idEmpresa);
+            return $query;
+        } catch (Exception $e) {
+            return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
+        }
+    }
+
      public function actualizarProducto()
      {
           try {
@@ -95,7 +108,7 @@ class Producto
 
      public function getIdEmpresa()
      {
-          return explode("/", $this->refIdEmpresa)[2];
+          return explode("/", $this->refIdEmpresa)[1];
      }
 
      public function setIdEmpresa($idEmpresa)

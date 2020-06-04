@@ -89,7 +89,7 @@ class Favorito
 
     public function getIdProducto()
     {
-        return explode("/", $this->refIdProducto)[2];
+        return explode("/", $this->refIdProducto)[1];
     }
 
     public function setIdProducto($idProducto)
@@ -99,7 +99,7 @@ class Favorito
 
     public function getIdPromocion()
     {
-        return explode("/", $this->refIdPromocion)[2];
+        return explode("/", $this->refIdPromocion)[1];
     }
 
     public function setIdPromocion($idPromocion)
@@ -109,7 +109,7 @@ class Favorito
 
     public function getIdCliente()
     {
-        return explode("/", $this->refIdCliente)[2];
+        return explode("/", $this->refIdCliente)[1];
     }
 
     public function setIdCliente($idCliente)

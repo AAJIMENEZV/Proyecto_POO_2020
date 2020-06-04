@@ -32,7 +32,7 @@ class Venta
             $this->idVenta = $this->fs->newDocument([
                 'refIdPromocion' => $this->refIdPromocion,
                 'refIdProducto' => $this->refIdProducto,
-                'refIdCliente' => $this->refiIdCliente,
+                'refIdCliente' => $this->refIdCliente,
                 'fechaVenta' => $this->fechaVenta,
             ]);
             return '{"codigoResultado":"1","mensaje":"Guardado con exito"}';
@@ -90,7 +90,7 @@ class Venta
 
     public function getIdPromocion()
     {
-        return explode("/", $this->refIdPromocion)[2];
+        return explode("/", $this->refIdPromocion)[1];
     }
 
     public function setIdPromocion($idPromocion)
@@ -100,7 +100,7 @@ class Venta
 
     public function getIdCliente()
     {
-        return explode("/", $this->refIdCliente)[2];
+        return explode("/", $this->refIdCliente)[1];
     }
 
     public function setIdCliente($idCliente)
@@ -110,7 +110,7 @@ class Venta
 
     public function getIdProducto()
     {
-        return explode("/", $this->refIdProducto)[2];
+        return explode("/", $this->refIdProducto)[1];
     }
 
     public function setIdProducto($idProducto)

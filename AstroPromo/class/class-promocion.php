@@ -9,10 +9,11 @@ class Promocion
     private $refIdProducto;
     private $descuento;
     private $precioNormal;
-    private $precioPromocion;
+    private $precioOferta;
     private $fechaVencimiento;
     private $fechaInicio;
     private $refIdEmpresa;
+    private $refIdSucursal;
 
     public function __construct()
     {
@@ -27,10 +28,11 @@ class Promocion
         $idProducto,
         $descuento,
         $precioNormal,
-        $precioPromocion,
+        $precioOferta,
         $fechaVencimiento,
         $fechaInicio,
-        $idEmpresa
+        $idEmpresa,
+        $idSucursal
     ) {
         $this->nombrePromocion = $nombrePromocion;
         $this->descripcionPromocion = $descripcionPromocion;
@@ -38,11 +40,13 @@ class Promocion
         $this->refIdProducto = "Producto/" . $idProducto;
         $this->descuento = $descuento;
         $this->precioNormal = $precioNormal;
-        $this->precioPromocion = $precioPromocion;
+        $this->precioOferta = $precioOferta;
         $this->fechaVencimiento = $fechaVencimiento;
         $this->fechaInicio = $fechaInicio;
         $this->refIdEmpresa = "Empresa/" . $idEmpresa;
+        $this->refIdSucursal = "Sucursal/" . $idSucursal;
     }
+
 
     public function guardarPromocion()
     {
@@ -51,13 +55,14 @@ class Promocion
                 'nombrePromocion' => $this->nombrePromocion,
                 'descripcionPromocion' => $this->descripcionPromocion,
                 'imagenPromocion' => $this->imagenPromocion,
-                'idProducto' => $this->refIdProducto,
+                'refIdProducto' => $this->refIdProducto,
                 'descuento' => $this->descuento,
                 'precioNormal' => $this->precioNormal,
-                'precioPromocion' => $this->precioPromocion,
+                'precioOferta' => $this->precioOferta,
                 'fechaVencimiento' => $this->fechaVencimiento,
                 'fechaInicio' => $this->fechaInicio,
-                'refIdEmpresa' => $this->refIdEmpresa
+                'refIdEmpresa' => $this->refIdEmpresa,
+                'refIdSucursal' => $this->refIdSucursal
             ]);
             return '{"codigoResultado":"1","mensaje":"Guardado con exito"}';
         } catch (Exception $e) {
@@ -78,13 +83,67 @@ class Promocion
                 $this->refIdProducto = $documento["idProducto"];
                 $this->descuento = $documento["descuento"];
                 $this->precioNormal = $documento["precioNormal"];
-                $this->precioPromocion = $documento["precioPromocion"];
+                $this->precioOferta = $documento["precioOferta"];
                 $this->fechaVencimiento = $documento["fechaVencimiento"];
                 $this->fechaInicio = $documento["fechaInicio"];
-                return '{"codigoResultado":"1","mensaje":"Obtenido con exito"}';
+                $this->refIdSucursal = $documento["refIdSucursal"];
+                $respuesta["valido"] = true;
+                $respuesta["mensaje"] = "Obtenido con exito";
+                return $respuesta;
             } else {
-                return '{"codigoResultado":"0","mensaje":"No encontrado"}';
+                $respuesta["valido"] = false;
+                $respuesta["mensaje"] = "No encontrado";
+                return $respuesta;
             }
+        } catch (Exception $e) {
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = $e->getMessage();
+            return $respuesta;
+        }
+    }
+
+    public function obtenerPromocionPorId()
+    {
+        try {
+
+            $documento = $this->fs->getDocument($this->idPromocion);
+            $this->idPromocion = $documento["id"];
+            $this->nombrePromocion = $documento["nombrePromocion"];
+            $this->descripcionPromocion = $documento["descripcionPromocion"];
+            $this->imagenPromocion = $documento["imagenPromocion"];
+            $this->refIdProducto = $documento["refIdProducto"];
+            $this->descuento = $documento["descuento"];
+            $this->precioNormal = $documento["precioNormal"];
+            $this->precioOferta = $documento["precioOferta"];
+            $this->fechaVencimiento = $documento["fechaVencimiento"];
+            $this->fechaInicio = $documento["fechaInicio"];
+            $this->refIdSucursal = $documento["refIdSucursal"];
+            $respuesta["valido"] = true;
+            $respuesta["mensaje"] = "Obtenido con exito";
+            return $respuesta;
+        } catch (Exception $e) {
+            $respuesta["valido"] = false;
+            $respuesta["mensaje"] = $e->getMessage();
+            return $respuesta;
+        }
+    }
+
+
+    public function obtenerPromocionEmpresa($idEmpresa)
+    {
+        try {
+            $query = $this->fs->getWhere("refIdEmpresa", "Empresa/" . $idEmpresa);
+            return $query;
+        } catch (Exception $e) {
+            return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
+        }
+    }
+
+    public function obtenerPromociones()
+    {
+        try {
+            $query = $this->fs->obtenerTodosDocumentos();
+            return $query;
         } catch (Exception $e) {
             return '{"codigoResultado":"0","mensaje":"' . $e->getMessage() . '"}';
         }
@@ -100,9 +159,10 @@ class Promocion
                 ['path' => 'idProducto', 'value' => $this->refIdProducto],
                 ['path' => 'descuento', 'value' => $this->descuento],
                 ['path' => 'precioNormal', 'value' => $this->precioNormal],
-                ['path' => 'precioPromocion', 'value' => $this->precioPromocion],
+                ['path' => 'precioOferta', 'value' => $this->precioOferta],
                 ['path' => 'fechaVencimiento', 'value' => $this->fechaVencimiento],
-                ['path' => 'fechaInicio', 'value' => $this->fechaInicio]
+                ['path' => 'fechaInicio', 'value' => $this->fechaInicio],
+                ['path' => 'refIdSucursal', 'value' => $this->refIdSucursal]
             ]);
             return '{"codigoResultado":"1","mensaje":"Actualizado con exito"}';
         } catch (Exception $e) {
@@ -122,7 +182,7 @@ class Promocion
 
     public function getIdEmpresa()
     {
-        return explode("/", $this->refIdEmpresa)[2];
+        return explode("/", $this->refIdEmpresa)[1];
     }
 
     public function setIdEmpresa($idEmpresa)
@@ -132,12 +192,21 @@ class Promocion
 
     public function getIdProducto()
     {
-        return explode("/", $this->refIdProducto)[2];
+        return explode("/", $this->refIdProducto)[1];
     }
 
     public function setIdProducto($idProducto)
     {
         $this->refIdProducto = "Producto/" . $idProducto;
+    }
+    public function getIdSucursal()
+    {
+        return explode("/", $this->refIdSucursal)[1];
+    }
+
+    public function setIdSucursal($idSucursal)
+    {
+        $this->refIdSucursal = "Sucursal/" . $idSucursal;
     }
     /**
      * Get the value of idPromocion
@@ -262,21 +331,21 @@ class Promocion
     }
 
     /**
-     * Get the value of precioPromocion
+     * Get the value of precioOferta
      */
-    public function getPrecioPromocion()
+    public function getPrecioOferta()
     {
-        return $this->precioPromocion;
+        return $this->precioOferta;
     }
 
     /**
-     * Set the value of precioPromocion
+     * Set the value of precioOferta
      *
      * @return  self
      */
-    public function setPrecioPromocion($precioPromocion)
+    public function setPrecioOferta($precioOferta)
     {
-        $this->precioPromocion = $precioPromocion;
+        $this->precioOferta = $precioOferta;
 
         return $this;
     }
